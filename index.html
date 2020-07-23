@@ -14,7 +14,7 @@ async function init() {
     margin = 50;
     ticks = [10,20,50,100]
     ds = d3.scaleLinear().domain(ddomain).range(drange);
-    ys = d3.scaleLinear().domain(ddomain).range(yrange);
+    ys = d3.scaleLinear().domain(ydomain).range(yrange);
     d3.select('svg')
     .append('g')
         .attr('transform','translate('+margin+','+margin+')')
