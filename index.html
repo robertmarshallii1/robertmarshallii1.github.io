@@ -2,15 +2,15 @@
 <script src='https://d3js.org/d3.v5.min.js'></script>
 <style> circle {fill: lightblue; stroke: black;} </style>
 <body onload='init()'>
-<svg width=1500 height=500>
+<svg width=1200 height=600>
 </svg>
 <script>
 async function init() {
     const data = await d3.csv('avyYrKl.csv');
     ddomain = [1950,2020];
-    drange = [0,1400];
+    drange = [0,1100];
     ydomain = [0,40]
-    yrange = [400,0];
+    yrange = [500,0];
     margin = 50;
     ticks = [10,20,50,100]
     ds = d3.scaleLinear().domain(ddomain).range(drange);
@@ -31,7 +31,7 @@ async function init() {
         .call(d3.axisLeft(ys));
     d3.select('svg')
     .append('g')
-        .attr('transform','translate('+margin+','+(200+margin)+')')
+        .attr('transform','translate('+margin+','+(500+margin)+')')
         .call(d3.axisBottom(ds));
 }
 </script>
