@@ -24,6 +24,14 @@ async function init() {
         .attr('cx',function(d,i) {return ds(parseInt(d.YYYY));})
         .attr('cy',function(d,i) {return ys(parseInt(d.KL));})
         .attr('r',function(d,i) {return 2 + parseInt(d.KL);})
+    d3.select('svg')
+    .append('g')
+        .attr('transform','translate('+margin+','+margin+')')
+        .call(d3.axisLeft(ys));
+    d3.select('svg')
+    .append('g')
+        .attr('transform','translate('+margin+','+(200+margin)+')')
+        .call(d3.axisBottom(xs));
 }
 </script>
 </body>
