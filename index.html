@@ -37,7 +37,7 @@ async function init() {
     }
     console.log(ticks)
     ys = d3.scaleLinear().domain(ydomain).range(yrange);
-    cs = d3.scaleLinear().domain([0,40]).range(['lghtblue','darkblue']);
+    cs = d3.scaleLinear().domain([0,40]).range(['lightblue','darkblue']);
     d3.select('svg')
     .append('g')
         .attr('transform','translate('+margin+','+margin+')')
