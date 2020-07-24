@@ -8,22 +8,20 @@
 <script>
 async function init() {
     const data = await d3.csv('avyYrKl.csv');
-    start_yr = 1950;
-    end_yr = 2020;
+    start_yr = 1951;
+    end_yr = 2019;
     margin = 50;
     h = 600;
     w = 1200;
-    ddomain = Array.from(Array(end_yr - start_yr + 1), (_, index) => index + start_yr);
+    ddomain = Array.from(Array(end_yr - start_yr + 3), (_, index) => index + start_yr - 1);
     drange = [0,w-2*margin];
     xs = d3.scaleBand().domain(ddomain).range(drange);
     console.log(xs)
     console.log(ddomain)
     console.log(drange)
-    ddomain = [start_yr,end_yr]
     ydomain = [0,40]
     yrange = [h-2*margin,0];
     ticks = [10,20,50,100]
-    ds = d3.scaleLinear().domain(ddomain).range(drange);
     ys = d3.scaleLinear().domain(ydomain).range(yrange);
     d3.select('svg')
     .append('g')
