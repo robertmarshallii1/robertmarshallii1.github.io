@@ -15,6 +15,7 @@ async function init() {
     w = 1200;
     ddomain = Array.from(Array(end_yr - start_yr + 1), (_, index) => index + start_yr);
     drange = [0,w-2*margin];
+    xs = d3.scaleBand().domain(ddomain).range(drange);
     console.log(ddomain)
     console.log(drange)
     ddomain = [start_yr,end_yr]
@@ -22,7 +23,6 @@ async function init() {
     yrange = [h-2*margin,0];
     ticks = [10,20,50,100]
     ds = d3.scaleLinear().domain(ddomain).range(drange);
-    xs = d3.scaleBand().domain(ddomain).range(drange);
     ys = d3.scaleLinear().domain(ydomain).range(yrange);
     d3.select('svg')
     .append('g')
@@ -34,7 +34,7 @@ async function init() {
         .attr('height',function(d,i) {return ys(parseInt(d.KL));})
         .attr('y',function(d,i) {return h - 2*margin - ys(parseInt(d.KL));})
         .attr('x',function(d,i) {return ds(parseInt(d.YYYY));})
-        .attr('width',function(d,i) {return 20;})
+        .attr('width',function(d,i) {return (w - 2*margin)/(start_yr-end_yr+1);})
     d3.select('svg')
     .append('g')
         .attr('transform','translate('+margin+','+margin+')')
@@ -42,7 +42,7 @@ async function init() {
     d3.select('svg')
     .append('g')
         .attr('transform','translate('+margin+','+(500+margin)+')')
-        .call(d3.axisBottom(ds));
+        .call(d3.axisBottom(xs));
 }
 </script>
 </body>
