@@ -12,7 +12,7 @@ async function init() {
     margin = 50;
     h = 600;
     w = 1200;
-    ddomain = [start_yr,end_yr];
+    ddomain = Array.from(Array(end_yr - start_yr + 1), (_, index) => index + start_yr);
     drange = [0,w-2*margin];
     ydomain = [0,40]
     yrange = [h-2*margin,0];
