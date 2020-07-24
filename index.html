@@ -35,6 +35,7 @@ async function init() {
     if (ddomain.length > 25) {
         ticks = multiplesOf(ddomain,5)
     }
+    console.log(ticks)
     ys = d3.scaleLinear().domain(ydomain).range(yrange);
     d3.select('svg')
     .append('g')
