@@ -46,6 +46,8 @@
         var cs = d3.scaleLinear().domain([0,40]).range(['lightblue','darkblue']);
 
         d3.select('#plot1')
+        .attr('height', height + 2*margin)
+        .attr('width', width + 2 * margin)
         .append('g')
             .attr('transform','translate('+margin+','+margin+')')
         .selectAll('rect')
