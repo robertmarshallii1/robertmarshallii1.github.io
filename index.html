@@ -37,6 +37,7 @@ async function init() {
     }
     console.log(ticks)
     ys = d3.scaleLinear().domain(ydomain).range(yrange);
+    cs = d3.scaleLinear().domain([-5,40]).range(['white','blue']);
     d3.select('svg')
     .append('g')
         .attr('transform','translate('+margin+','+margin+')')
@@ -48,6 +49,7 @@ async function init() {
         .attr('y',function(d,i) {return h - 2*margin - ys(parseInt(d.KL));})
         .attr('x',function(d,i) {return xs(parseInt(d.YYYY));})
         .attr('width',function(d,i) {return xs(start_yr);})
+        .attr('fill',function(d,i) {return cs(parseInt(d.KL));})
     d3.select('svg')
     .append('g')
         .attr('transform','translate('+margin+','+margin+')')
