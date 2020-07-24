@@ -22,9 +22,9 @@ async function init() {
 
 async function dvsyr() {
     const data = await d3.csv('avyYrKl.csv');
-    var w = window.screen.innerWidth*0.9; 
-    var h = window.screen.innerWidth*0.5; 
-    var margin = window.screen.innerWidth*0.1; 
+    var w = window.innerWidth*0.9; 
+    var h = window.innerHeight*0.5; 
+    var margin = window.innerHeight*0.1; 
     start_yr = 1951;
     end_yr = 2019;
     ddomain = Array.from(Array(end_yr - start_yr + 3), (_, index) => index + start_yr - 1);
