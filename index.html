@@ -7,24 +7,30 @@
 <script>
 async function init() {
     const data = await d3.csv('avyYrKl.csv');
-    ddomain = [1950,2020];
-    drange = [0,1100];
-    ydomain = [0,40]
-    yrange = [500,0];
+    start_yr = 1950;
+    end_yr = 2020;
     margin = 50;
+    h = 600;
+    w = 1200;
+    ddomain = [start_yr,end_yr];
+    drange = [0,w-2*margin];
+    ydomain = [0,40]
+    yrange = [h-2*margin,0];
     ticks = [10,20,50,100]
-    ds = d3.scaleLinear().domain(ddomain).range(drange);
+    ds = d3.scaleBand().domain(ddomain).range(drange);
+    xs = d3.scaleBand().domain(ddomain).range(drange);
     ys = d3.scaleLinear().domain(ydomain).range(yrange);
     d3.select('svg')
     .append('g')
         .attr('transform','translate('+margin+','+margin+')')
-    .selectAll('circle')
+    .selectAll('rect')
     .data(data)
     .enter()
-    .append('circle')
-        .attr('cx',function(d,i) {return ds(parseInt(d.YYYY));})
-        .attr('cy',function(d,i) {return ys(parseInt(d.KL));})
-        .attr('r',function(d,i) {return 2 + parseInt(d.KL);})
+    .append('rect')
+        .attr('height',function(d,i) {return ys(parseInt(d.KL));})
+        .attr('y',function(d,i) {return h - 2*margin - ys(parseInt(d.KL));})
+        .attr('x',function(d,i) {return ds(parseInt(d.YYYY));})
+        .attr('width',function(d,i) {return ds(1);})
     d3.select('svg')
     .append('g')
         .attr('transform','translate('+margin+','+margin+')')
