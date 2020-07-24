@@ -6,6 +6,16 @@
 <svg width=1200 height=600>
 </svg>
 <script>
+function multiplesOf(numbers, number) { 
+  var multiples = []; 
+  for (var i = 0; i < numbers.length; i++) {
+    if (numbers[i] % number === 0) { // divide by the number
+      multiples.push(numbers[i]); // add the current multiple to arr
+    }
+  }
+  return multiples;
+}
+
 async function init() {
     const data = await d3.csv('avyYrKl.csv');
     start_yr = 1951;
@@ -21,7 +31,10 @@ async function init() {
     console.log(drange)
     ydomain = [0,40]
     yrange = [h-2*margin,0];
-    ticks = [10,20,50,100]
+    ticks = ddomain;
+    if (ddomain.length > 25) {
+        ticks = multiplesOf(ddomain,5)
+    }
     ys = d3.scaleLinear().domain(ydomain).range(yrange);
     d3.select('svg')
     .append('g')
