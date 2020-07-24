@@ -30,16 +30,12 @@ async function dvsyr() {
     ddomain = Array.from(Array(end_yr - start_yr + 3), (_, index) => index + start_yr - 1);
     drange = [0,w-2*margin];
     xs = d3.scaleBand().domain(ddomain).range(drange);
-    console.log(xs)
-    console.log(ddomain)
-    console.log(drange)
-    ydomain = [0,40]
+    ydomain = [0,36]
     yrange = [h-2*margin,0];
     ticks = ddomain;
     if (ddomain.length > 25) {
         ticks = multiplesOf(ddomain,5)
     }
-    console.log(ticks)
     ys = d3.scaleLinear().domain(ydomain).range(yrange);
     cs = d3.scaleLinear().domain([0,40]).range(['lightblue','darkblue']);
     d3.select('svg')
