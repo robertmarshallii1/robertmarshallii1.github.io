@@ -60,7 +60,7 @@ async function dvsyr() {
         .call(d3.axisLeft(ys));
     d3.select('svg')
     .append('g')
-        .attr('transform','translate('+margin+','+(500+margin)+')')
+        .attr('transform','translate('+margin+','+(h-margin)+')')
         .call(d3.axisBottom(xs).tickValues(ticks));
 }
 </script>
