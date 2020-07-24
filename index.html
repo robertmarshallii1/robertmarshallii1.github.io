@@ -17,6 +17,10 @@ function multiplesOf(numbers, number) {
 }
 
 async function init() {
+    await dvsyr();
+}
+
+async function dvsyr() {
     const data = await d3.csv('avyYrKl.csv');
     start_yr = 1951;
     end_yr = 2019;
