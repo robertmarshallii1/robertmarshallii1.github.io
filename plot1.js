@@ -13,8 +13,8 @@ async function init() {
 }
 
 async function dvsyr() {
-    const data = await d3.csv('avyYrKl.csv');
-    var w = window.screen.width*0.9; 
+    const data = await d3.csv('avydeaths.csv');
+    var w = window.screen.width*0.9;
     var h = window.screen.height*0.5; 
     var margin = window.screen.height*0.1; 
     var start_yr = 1951;
@@ -30,9 +30,10 @@ async function dvsyr() {
     }
     var ys = d3.scaleLinear().domain(ydomain).range(yrange);
     var cs = d3.scaleLinear().domain([0,40]).range(['lightblue','darkblue']);
+    var clrs = {'Continental': '#ff8c1a', 'Maritime': '#00cccc', 'Northeast': '#70db70'};
 
-    d3.select('#plot1')
-    .attr('height', h + 2*margin)
+    svg = d3.select('#plot1');
+    svg.attr('height', h + 2*margin)
     .attr('width', w + 2 * margin)
     .append('g')
         .attr('transform','translate('+margin+','+margin+')')
@@ -46,15 +47,13 @@ async function dvsyr() {
         .attr('width',function(d,i) {return xs(start_yr);})
         .attr('fill','lightblue')
         .transition().duration(3000).delay(250)
-        .attr('y',function(d,i) {return ys(parseInt(d.KL));})
-        .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d.KL));})
-        .attr('fill',function(d,i) {return cs(parseInt(d.KL));})
-    d3.select('svg')
-    .append('g')
+        .attr('y',function(d,i) {return ys(parseInt(d.Continental));})
+        .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d.Continental));})
+        .attr('fill',clrs['Continental'])
+    svg.append('g')
         .attr('transform','translate('+margin+','+margin+')')
         .call(d3.axisLeft(ys));
-    d3.select('svg')
-    .append('g')
+    svg.append('g')
         .attr('transform','translate('+margin+','+(h-margin)+')')
         .call(d3.axisBottom(xs).tickValues(ticks));
 }
