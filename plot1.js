@@ -31,6 +31,8 @@ async function dvsyr() {
     var ys = d3.scaleLinear().domain(ydomain).range(yrange);
     var cs = d3.scaleLinear().domain([0,40]).range(['lightblue','darkblue']);
     var clrs = {'Continental': '#ff8c1a', 'Maritime': '#00cccc', 'Northeast': '#70db70'};
+    var tdel = 250;
+    var tt = 3000;
 
     svg = d3.select('#plot1');
     svg.attr('height', h + 2*margin)
@@ -45,11 +47,21 @@ async function dvsyr() {
         .attr('height',0)
         .attr('x',function(d,i) {return xs(parseInt(d.YYYY));})
         .attr('width',function(d,i) {return xs(start_yr);})
-        .attr('fill','lightblue')
-        .transition().duration(3000).delay(250)
+        .attr('fill','black')
+        .transition().duration(tt).delay(tdel)
         .attr('y',function(d,i) {return ys(parseInt(d.Continental));})
         .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d.Continental));})
         .attr('fill',clrs['Continental'])
+    svg.append('rect')
+        .attr('y',h - 2*margin)
+        .attr('height',0)
+        .attr('x',function(d,i) {return xs(parseInt(d.YYYY));})
+        .attr('width',function(d,i) {return xs(start_yr);})
+        .attr('fill','black')
+        .transition().duration(tt).delay(tdel)
+        .attr('y',function(d,i) {return ys(parseInt(d.Maritime + d.Continental));})
+        .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d.Maritime + d.Continental));})
+        .attr('fill',clrs['Maritime'])
     svg.append('g')
         .attr('transform','translate('+margin+','+margin+')')
         .call(d3.axisLeft(ys));
