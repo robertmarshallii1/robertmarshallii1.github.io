@@ -24,7 +24,7 @@ rect {
     padding: 12px;
     background: rgba(0, 0, 0, 0.8);
     color: #fff;
-    border-radius: 2px;
+    border-radius: 8px;
     font: 15px Arial, sans-serif;
     opacity: 0.8;
   }
