@@ -30,7 +30,7 @@ async function dvsyr() {
     }
     var ys = d3.scaleLinear().domain(ydomain).range(yrange);
     var cs = d3.scaleLinear().domain([0,40]).range(['lightblue','darkblue']);
-    var clrs = {'Continental': '#D99E32', 'Maritime': '#4E96A6', 'Northeast': '#D2DBE3'};
+    var clrs = {'Continental': '#D99E32', 'Maritime': '#4E96A6', 'Northeast': '#8FADBF'};
     var tdel = 250;
     var tt = 3000;
 
