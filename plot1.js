@@ -52,7 +52,7 @@ async function dvsyr() {
         .attr('y',function(d,i) {return ys(parseInt(d.Continental));})
         .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d.Continental));})
         .attr('fill',clrs['Continental'])
-    svg.append('rect')
+        .append('rect')
         .attr('y',h - 2*margin)
         .attr('height',0)
         .attr('x',function(d,i) {return xs(parseInt(d.YYYY));})
