@@ -34,6 +34,15 @@ async function dvsyr() {
     var tdel = 50;
     var tt = 1500;
 
+
+
+    var tip = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function(d) {
+            s = '<strong>Year: </strong>' + d.YYYY + '</br><strong>Deaths: </strong>' + d.ALL + '</br>'
+            return s;})
+
     svg = d3.select('#plot1');
     svg.attr('height', h + 2*margin)
     .attr('width', w + 2 * margin)
@@ -82,6 +91,22 @@ async function dvsyr() {
         .attr('y',function(d,i) {return ys(parseInt(d.Northeast) + parseInt(d.Maritime) + parseInt(d.Continental));})
         .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d.Northeast));})
         .attr('fill',clrs['Northeast'])
+    svg.append('g')
+        .attr('transform','translate('+margin+','+margin+')')
+    .call(tip)
+    .selectAll('rect')
+    .data(data)
+    .enter()
+    .append('rect')
+        .attr('y',margin)
+        .attr('height',h - 2*margin)
+        .attr('x',function(d,i) {return xs(parseInt(d.YYYY));})
+        .attr('width',function(d,i) {return xs(start_yr);})
+        .attr('opacity',0.0)
+        .attr('stroke-width',0)
+        .on('mouseover', tip.show)
+        .on('mouseout', tip.hide)
+        
     svg.append('g')
         .attr('transform','translate('+margin+','+margin+')')
         .call(d3.axisLeft(ys));
