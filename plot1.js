@@ -30,7 +30,7 @@ async function dvsyr() {
     }
     var ys = d3.scaleLinear().domain(ydomain).range(yrange);
     var cs = d3.scaleLinear().domain([0,40]).range(['lightblue','darkblue']);
-    var clrs = {'Continental': '#8C4C3E', 'Maritime': '#88BFB0', 'Northeast': '#D9BBB4'};
+    var clrs = {'Continental': '#736565', 'Maritime': '#88BFB0', 'Northeast': '#D9BBB4'};
     var tdel = 250;
     var tt = 3000;
 
@@ -63,7 +63,7 @@ async function dvsyr() {
         .attr('x',function(d,i) {return xs(parseInt(d.YYYY));})
         .attr('width',function(d,i) {return xs(start_yr);})
         .attr('fill',clrs['Continental'])
-        .transition().duration(tt).delay(2*tdel+tt)
+        .transition().duration(tt).delay(tdel+tt)
         .attr('y',function(d,i) {return ys(parseInt(d.Maritime) + parseInt(d.Continental));})
         .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d.Maritime));})
         .attr('fill',clrs['Maritime'])
@@ -78,7 +78,7 @@ async function dvsyr() {
         .attr('x',function(d,i) {return xs(parseInt(d.YYYY));})
         .attr('width',function(d,i) {return xs(start_yr);})
         .attr('fill',clrs['Maritime'])
-        .transition().duration(tt).delay(3*tdel+2*tt)
+        .transition().duration(tt).delay(2*tt+tdel)
         .attr('y',function(d,i) {return ys(parseInt(d.Northeast) + parseInt(d.Maritime) + parseInt(d.Continental));})
         .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d.Northeast));})
         .attr('fill',clrs['Northeast'])
