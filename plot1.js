@@ -14,7 +14,7 @@ async function init() {
 
 async function dvsyr() {
     const data = await d3.csv('avydeaths.csv');
-    var w = window.screen.width*0.9;
+    var w = window.screen.width*0.75;
     var h = window.screen.height*0.5; 
     var margin = window.screen.height*0.1; 
     var start_yr = 1951;
@@ -57,7 +57,7 @@ async function dvsyr() {
         .attr('x',function(d,i) {return xs(parseInt(d.YYYY));})
         .attr('width',function(d,i) {return xs(start_yr);})
         .attr('fill','white')
-        .transition().duration(tt).delay(tdel)
+        .transition().duration(tt).delay(function(d,i) {return(i-1)*50 + tdel;})
         .attr('y',function(d,i) {return ys(parseInt(d.Continental));})
         .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d.Continental));})
         .attr('fill',clrs['Continental'])
@@ -113,4 +113,17 @@ async function dvsyr() {
     svg.append('g')
         .attr('transform','translate('+margin+','+(h-margin)+')')
         .call(d3.axisBottom(xs).tickValues(ticks));
+}
+
+async function states() {
+    const data = await d3.csv('avydeaths.csv');
+    var w = window.screen.width*0.75;
+    var h = window.screen.height*0.5; 
+
+    var svg = d3.select("body")
+			.append("svg")
+			.attr("width", w)
+            .attr("height", h);
+            
+    
 }
