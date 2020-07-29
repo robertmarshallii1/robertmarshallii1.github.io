@@ -31,8 +31,8 @@ async function dvsyr() {
     var ys = d3.scaleLinear().domain(ydomain).range(yrange);
     var cs = d3.scaleLinear().domain([0,40]).range(['lightblue','darkblue']);
     var clrs = {'Continental': '#D99E32', 'Maritime': '#4E96A6', 'Northeast': '#8FADBF'};
-    var tdel = 250;
-    var tt = 3000;
+    var tdel = 50;
+    var tt = 1500;
 
     svg = d3.select('#plot1');
     svg.attr('height', h + 2*margin)
