@@ -58,7 +58,7 @@ async function dvsyr() {
         .attr('x',function(d,i) {return xs(parseInt(d.YYYY));})
         .attr('width',function(d,i) {return xs(start_yr);})
         .attr('fill','black')
-        .transition().duration(tt).delay(tdel)
+        .transition().duration(tt).delay(2*tdel+tt)
         .attr('y',function(d,i) {return ys(parseInt(d.Maritime + d.Continental));})
         .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d.Maritime + d.Continental));})
         .attr('fill',clrs['Maritime'])
