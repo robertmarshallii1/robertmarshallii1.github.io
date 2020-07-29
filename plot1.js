@@ -64,7 +64,7 @@ async function dvsyr() {
         .attr('width',function(d,i) {return xs(start_yr);})
         .attr('fill','black')
         .transition().duration(tt).delay(2*tdel+tt)
-        .attr('y',function(d,i) {return ys(parseInt(d.Maritime + d.Continental));})
+        .attr('y',function(d,i) {return ys(parseInt(d.Maritime) + parseInt(d.Continental));})
         .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d.Maritime));})
         .attr('fill',clrs['Maritime'])
     svg.append('g')
