@@ -1,0 +1,31 @@
+circle {
+    fill: lightblue; 
+    stroke: black;
+} 
+
+rect {
+    stroke: black;
+}
+
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+  }
+
+#parallax1 {
+    background-image: url('pics/icelandmtns.jpg');
+}
+
+.d3-tip {
+    line-height: 1;
+    padding: 12px;
+    background: rgba(13, 13, 13, 0.6);
+    color: #fff;
+    border-radius: 8px;
+    font: 15px Arial, sans-serif;
+    opacity: 0.8;
+  }
+
