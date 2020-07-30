@@ -90,7 +90,7 @@ async function dvsyr() {
         .attr('class', 'd3-tip')
         .attr('id','ttp')
         .offset([-10, 0])
-        .html(function(d) {
+        .html(function(d) { 
             s = '<strong>Year: </strong>' + d.YYYY + '</br><strong>Deaths: </strong>' + d[selectedGroup] + '</br>'
             return s;})
 
@@ -101,6 +101,8 @@ async function dvsyr() {
         .attr('height',function(d,i) {return h-2*margin-ys(parseInt(d[selectedGroup])+1);})
         .attr('x',function(d,i) {return xs(parseInt(d.YYYY));})
         .attr('width',function(d,i) {return xs(start_yr);})
+        .on('mouseover', tip.show)
+        .on('mouseout', tip.hide)
     }
 
     // When the button is changed, run the updateChart function
