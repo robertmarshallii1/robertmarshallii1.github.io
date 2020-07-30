@@ -50,6 +50,10 @@ async function dvsyr() {
         .attr("value", function (d) { return d; }) // corresponding value returned by the button
 
         // Initialize plot with all
+        var svg = d3.select('#plot1');
+        svg.attr('height', h + 2*margin)
+        .attr('width', w + 2 * margin)
+        
         svg.append('g')
         .attr('transform','translate('+margin+','+margin+')')
         .selectAll('rect')
@@ -106,9 +110,6 @@ async function dvsyr() {
             s = '<strong>Year: </strong>' + d.YYYY + '</br><strong>Deaths: </strong>' + d.ALL + '</br>'
             return s;})
 
-    svg = d3.select('#plot1');
-    svg.attr('height', h + 2*margin)
-    .attr('width', w + 2 * margin)
     // .append('g')
     //     .attr('transform','translate('+margin+','+margin+')')
     // .selectAll('rect')
