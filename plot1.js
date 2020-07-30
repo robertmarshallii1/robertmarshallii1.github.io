@@ -83,6 +83,7 @@ async function dvsyr() {
         d3.selectAll('#ttp').data(data).html(function(d) {
             s = '<strong>Year: </strong>' + d.YYYY + '</br><strong>Deaths: </strong>' + d[selectedGroup] + '</br>'
             return s;})
+        console.log(d3.select('#ttp').html)
 
         d3.selectAll('#ttips').data(data)
         .attr('y',function(d,i) {return ys(parseInt(d[selectedGroup]));})
