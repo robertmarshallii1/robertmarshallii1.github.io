@@ -105,7 +105,7 @@ async function dvsyr() {
         .on('mouseout', tip.hide)
 
         // Update annotation
-        d3.select('#ant').text('Total deaths: ' + d3.sum(data[selectedGroup]));
+        d3.select('#ant').text(function(d) {return 'Total deaths: ' + d3.sum(d[selectedGroup]);});
     }
 
     // When the button is changed, run the updateChart function
@@ -231,7 +231,7 @@ async function dvsyr() {
         .attr("y", h/8)
         .attr("text-anchor", "middle")  
         .style('font','15px sans-serif') 
-        .text('Total deaths: ' + d3.sum(data['ALL']));
+        .text(function(d) {return 'Total deaths: ' + d3.sum(d['ALL']);});
 
 }
 
