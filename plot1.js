@@ -185,8 +185,8 @@ async function dvsyr() {
     // Axis labels
     svg.append("text")
     .attr("transform", "rotate(-90)")
-    .attr("y", 0.5*(h+2*margin))
-    .attr("x",0.5*margin)
+    .attr("y", 0.5*margin)
+    .attr("x",0.5*(h+2*margin))
     .attr("dy", "1em")
     .style('text-anchor', 'middle')
     .style('font','15px Arial, sans-serif')
