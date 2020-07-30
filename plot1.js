@@ -177,7 +177,7 @@ async function dvsyr() {
         .call(d3.axisLeft(ys))
         .append("text")
         .attr("transform", "rotate(-90)")
-        .attr("y", 6)
+        .attr("y", function(d) {return ys(30);})
         .attr("dy", ".71em")
         .style("text-anchor", "end")
         .text("Deaths");
