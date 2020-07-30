@@ -58,12 +58,12 @@ async function dvsyr() {
     .attr('fill',function(d,i) {return cs(parseInt(d.ALL));})
 
     // Add select to change state
-
-    svg.append('g')
+    svg.append('select')
     .attr('transform','translate('+margin+','+margin+')')
-    .append('select')
     .attr('id','selectButton')
     .attr('class','select-css')
+    .attr('y', 100)
+    .attr('x', 100)
 
     // List of states
     var allGroup = ['ALL','AK', 'AZ', 'CA', 'CO', 'ID', 'ME', 'MT', 'ND', 'NH', 'NM', 'NV', 'NY', 'OR', 'UT', 'VT', 'WA', 'WY']
