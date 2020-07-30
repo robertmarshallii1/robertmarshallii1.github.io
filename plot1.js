@@ -64,7 +64,7 @@ async function dvsyr() {
     .attr('fill','#4E96A6')
     .transition().duration(tt).delay(function(d,i) {return(i-1)*25 + tdel;})
     .attr('y',function(d,i) {return ys(parseInt(d.ALL));})
-    .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d.ALL));})
+    .attr('height',function(d,i) {return h - margin - ys(parseInt(d.ALL));})
     .attr('fill',function(d,i) {return cs(parseInt(d.ALL));})
 
     // A function that update the chart
@@ -86,7 +86,7 @@ async function dvsyr() {
         .attr('fill','#4E96A6')
         .transition().duration(tt).delay(function(d,i) {return(i-1)*25 + tdel;})
         .attr('y',function(d,i) {return ys(parseInt(d[selectedGroup]));})
-        .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d[selectedGroup]));})
+        .attr('height',function(d,i) {return h - margin - ys(parseInt(d[selectedGroup]));})
         .attr('fill',function(d,i) {return cs(parseInt(d[selectedGroup]));})
     }
 
