@@ -46,6 +46,14 @@ async function dvsyr() {
     .text(function (d) { return d; }) // text shown in the menu
     .attr('value', function (d) { return d; }) // corresponding value returned by the button
 
+    // tooltips
+    var tip = d3.tip()
+    .attr('class', 'd3-tip')
+    .offset([-10, 0])
+    .html(function(d) {
+        s = '<strong>Year: </strong>' + d.YYYY + '</br><strong>Deaths: </strong>' + d.ALL + '</br>'
+        return s;})
+
     // Initialize plot with ALL 
     svg = d3.select('#plot1');
     svg.attr('height', h + 2*margin)
@@ -53,6 +61,7 @@ async function dvsyr() {
 
     svg.append('g')
     .attr('transform','translate('+margin+','+margin+')')
+    .call(tip)
     .selectAll('rect')
     .data(data)
     .enter()
@@ -66,19 +75,31 @@ async function dvsyr() {
     .attr('y',function(d,i) {return ys(parseInt(d.ALL));})
     .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d.ALL));})
     .attr('fill',function(d,i) {return cs(parseInt(d.ALL));})
+    .on('mouseover', tip.show)
+    .on('mouseout', tip.hide)
 
     // A function that update the chart
     function update(selectedGroup) {
 
-        // Give these new data to update rects
-        // svg.selectAll('rect').remove()
+        // Update tooltip text as well
+        tip = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function(d) {
+            s = '<strong>Year: </strong>' + d.YYYY + '</br><strong>Deaths: </strong>' + d[selectedGroup] + '</br>'
+            return s;})
 
-        svg.selectAll('rect')
+        // Give these new data to update rects
+
+        svg.call(tip).selectAll('rect')
         .data(data)
         .transition().duration(tt).delay(function(d,i) {return(i-1)*25 + tdel;})
         .attr('y',function(d,i) {return ys(parseInt(d[selectedGroup]));})
         .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d[selectedGroup]));})
         .attr('fill',function(d,i) {return cs(parseInt(d[selectedGroup]));})
+        .on('mouseover', tip.show)
+        .on('mouseout', tip.hide)
+
     }
 
     // When the button is changed, run the updateChart function
@@ -89,13 +110,6 @@ async function dvsyr() {
         update(selectedOption)
     })
 
-
-    var tip = d3.tip()
-        .attr('class', 'd3-tip')
-        .offset([-10, 0])
-        .html(function(d) {
-            s = '<strong>Year: </strong>' + d.YYYY + '</br><strong>Deaths: </strong>' + d.ALL + '</br>'
-            return s;})
 
     // .append('g')
     //     .attr('transform','translate('+margin+','+margin+')')
