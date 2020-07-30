@@ -59,7 +59,7 @@ async function dvsyr() {
 
     // Add select to change state
 
-    svg.append('select')
+    svg.append('g')
     .attr('transform','translate('+margin+','+margin+')')
     .attr('id','selectButton')
     .attr('class','select-css')
