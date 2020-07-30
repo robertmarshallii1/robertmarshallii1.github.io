@@ -195,7 +195,8 @@ async function dvsyr() {
     svg.append("text")             
     .attr("transform","translate("+(w/2)+" ,"+(h - 0.5*margin)+")")
     .style("text-anchor", "middle")
-    .text("Year");
+    .style('font','15px Arial, sans-serif')
+    .text('Year');
 
 }
 
