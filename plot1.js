@@ -193,7 +193,7 @@ async function dvsyr() {
     .text('Deaths');
 
     svg.append("text")             
-    .attr("transform","translate("+(w/2)+" ,"+(h - margin)+")")
+    .attr("transform","translate("+(w/2)+" ,"+(h - 0.5*margin)+")")
     .style("text-anchor", "middle")
     .text("Year");
 
