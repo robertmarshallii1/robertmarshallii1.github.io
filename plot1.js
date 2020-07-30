@@ -86,7 +86,11 @@ async function dvsyr() {
         .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d[selectedGroup]));})
         .attr('fill',function(d,i) {return cs(parseInt(d[selectedGroup]));})
 
-        tip = d3.selectAll('#ttp').data(data).html(function(d) {
+        var tip = d3.tip()
+        .attr('class', 'd3-tip')
+        .attr('id','ttp')
+        .offset([-10, 0])
+        .html(function(d) {
             s = '<strong>Year: </strong>' + d.YYYY + '</br><strong>Deaths: </strong>' + d[selectedGroup] + '</br>'
             return s;})
 
