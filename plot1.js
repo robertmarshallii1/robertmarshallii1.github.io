@@ -74,8 +74,6 @@ async function dvsyr() {
         svg.append('g')
         .attr('transform','translate('+margin+','+margin+')')
         .selectAll('rect')
-        .data(data)
-        .transition().duration(tt).delay(function(d,i) {return(i-1)*25 + tdel;})
         .attr('y',function(d,i) {return ys(parseInt(d[selectedGroup]));})
         .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d[selectedGroup]));})
         .attr('fill',function(d,i) {return cs(parseInt(d[selectedGroup]));})
