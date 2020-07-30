@@ -80,26 +80,26 @@ async function dvsyr() {
         .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d[selectedGroup]));})
         .attr('fill',function(d,i) {return cs(parseInt(d[selectedGroup]));})
 
-        // update tooltips
-        tip = d3.tip()
-        .attr('class', 'd3-tip')
-        .offset([-10, 0])
-        .html(function(d) {
-            s = '<strong>Year: </strong>' + d.YYYY + '</br><strong>Deaths: </strong>' + d[selectedGroup] + '</br>'
-            return s;})
+        // // update tooltips
+        // tip = d3.tip()
+        // .attr('class', 'd3-tip')
+        // .offset([-10, 0])
+        // .html(function(d) {
+        //     s = '<strong>Year: </strong>' + d.YYYY + '</br><strong>Deaths: </strong>' + d[selectedGroup] + '</br>'
+        //     return s;})
 
-        svg
-        .call(tip)
-        .selectAll('rect')
-        .data(data)
-            .attr('y',function(d,i) {return ys(parseInt(d[selectedGroup]));})
-            .attr('height',function(d,i) {return h-2*margin-ys(parseInt(d[selectedGroup]));})
-            .attr('x',function(d,i) {return xs(parseInt(d.YYYY));})
-            .attr('width',function(d,i) {return xs(start_yr);})
-            .attr('opacity',0.0)
-            .attr('stroke-width',0)
-            .on('mouseover', tip.show)
-            .on('mouseout', tip.hide)
+        // svg
+        // .call(tip)
+        // .selectAll('rect')
+        // .data(data)
+        //     .attr('y',function(d,i) {return ys(parseInt(d[selectedGroup]));})
+        //     .attr('height',function(d,i) {return h-2*margin-ys(parseInt(d[selectedGroup]));})
+        //     .attr('x',function(d,i) {return xs(parseInt(d.YYYY));})
+        //     .attr('width',function(d,i) {return xs(start_yr);})
+        //     .attr('opacity',0.0)
+        //     .attr('stroke-width',0)
+        //     .on('mouseover', tip.show)
+        //     .on('mouseout', tip.hide)
     }
 
     // When the button is changed, run the updateChart function
