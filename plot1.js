@@ -105,7 +105,10 @@ async function dvsyr() {
         .on('mouseout', tip.hide)
 
         // Update annotation
-        d3.select('#ant').data(data).text('Total deaths: ' + d3.sum(data, function(d) {return d[selectedGroup];}));
+        d3.select('#ant')
+        .data(data)
+        .transition().duration(tt)
+        .text('Total deaths: ' + d3.sum(data, function(d) {return d[selectedGroup];}));
     }
 
     // When the button is changed, run the updateChart function
