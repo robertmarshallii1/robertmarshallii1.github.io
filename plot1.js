@@ -226,9 +226,10 @@ async function dvsyr() {
 
     // Annotation
     svg.append("text")
+        .attr('transform','translate('+margin+','+margin+')')
         .attr('id','ant')
-        .attr("x", w/8)             
-        .attr("y", h/8)
+        .attr("x", xs(1953))             
+        .attr("y", ys(30))
         .attr("text-anchor", "middle")  
         .style('font','15px sans-serif')
         .data(data)
