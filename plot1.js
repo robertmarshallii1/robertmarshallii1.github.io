@@ -53,7 +53,7 @@ async function dvsyr() {
         var svg = d3.select('#plot1');
         svg.attr('height', h + 2*margin)
         .attr('width', w + 2 * margin)
-        
+
         svg.append('g')
         .attr('transform','translate('+margin+','+margin+')')
         .selectAll('rect')
@@ -179,11 +179,6 @@ async function dvsyr() {
         .attr('transform','translate('+margin+','+(h-margin)+')')
         .call(d3.axisBottom(xs).tickValues(ticks));
 
-    legend = svg.append('g')
-        .attr('class','legend')
-        .attr('transform','translate('+margin+','+margin+')')
-        .style('font-size','12px')
-        .call(d3.legend)
 })
 
 
