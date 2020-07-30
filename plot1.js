@@ -190,7 +190,12 @@ async function dvsyr() {
     .attr("dy", "1em")
     .style('text-anchor', 'middle')
     .style('font','15px Arial, sans-serif')
-    .text('Deaths');   
+    .text('Deaths');
+
+    svg.append("text")             
+    .attr("transform","translate("+(w/2)+" ,"+(h - margin)+")")
+    .style("text-anchor", "middle")
+    .text("Year");
 
 }
 
