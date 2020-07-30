@@ -22,7 +22,7 @@ async function dvsyr() {
     var ddomain = Array.from(Array(end_yr - start_yr + 3), (_, index) => index + start_yr - 1);
     var drange = [0,w-2*margin];
     var xs = d3.scaleBand().domain(ddomain).range(drange);
-    var ydomain = [0,36]
+    var ydomain = [1,36]
     var yrange = [h-2*margin,0];
     var ticks = ddomain;
     if (ddomain.length > 25) {
@@ -56,7 +56,7 @@ async function dvsyr() {
         .attr('height',0)
         .attr('x',function(d,i) {return xs(parseInt(d.YYYY));})
         .attr('width',function(d,i) {return xs(start_yr);})
-        .attr('fill','white')
+        .attr('fill','#4E96A6')
         .transition().duration(tt).delay(function(d,i) {return(i-1)*25 + tdel;})
         .attr('y',function(d,i) {return ys(parseInt(d.ALL));})
         .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d.ALL));})
