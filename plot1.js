@@ -34,22 +34,12 @@ async function dvsyr() {
     var tdel = 50;
     var tt = 1500;
 
-    // List of states
-    var allGroup = ['ALL','AK', 'AZ', 'CA', 'CO', 'ID', 'ME', 'MT', 'ND', 'NH', 'NM', 'NV', 'NY', 'OR', 'UT', 'VT', 'WA', 'WY']
-
-    // add the options to the button
-    d3.select('#selectButton')
-    .selectAll('myOptions')
-        .data(allGroup)
-    .enter()
-        .append('option')
-    .text(function (d) { return d; }) // text shown in the menu
-    .attr('value', function (d) { return d; }) // corresponding value returned by the button
-
-    // Initialize plot with ALL 
+    // Initialize svg element
     svg = d3.select('#plot1');
     svg.attr('height', h + 2*margin)
     .attr('width', w + 2 * margin)
+
+    // Initialize plot with ALL 
 
     svg.append('g')
     .attr('transform','translate('+margin+','+margin+')')
@@ -66,6 +56,25 @@ async function dvsyr() {
     .attr('y',function(d,i) {return ys(parseInt(d.ALL));})
     .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d.ALL));})
     .attr('fill',function(d,i) {return cs(parseInt(d.ALL));})
+
+    // Add select to change state
+
+    svg.append('select')
+    .attr('transform','translate('+margin+','+margin+')')
+    .attr('id','selectButton')
+    .attr('class','select-css')
+
+    // List of states
+    var allGroup = ['ALL','AK', 'AZ', 'CA', 'CO', 'ID', 'ME', 'MT', 'ND', 'NH', 'NM', 'NV', 'NY', 'OR', 'UT', 'VT', 'WA', 'WY']
+
+    // add the state options to the select element
+    d3.select('#selectButton')
+    .selectAll('myOptions')
+        .data(allGroup)
+    .enter()
+        .append('option')
+    .text(function (d) { return d; }) // text shown in the menu
+    .attr('value', function (d) { return d; }) // corresponding value returned by the button
 
     // A function that update the chart
     function update(selectedGroup) {
