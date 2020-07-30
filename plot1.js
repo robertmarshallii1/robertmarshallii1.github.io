@@ -46,14 +46,6 @@ async function dvsyr() {
     .text(function (d) { return d; }) // text shown in the menu
     .attr('value', function (d) { return d; }) // corresponding value returned by the button
 
-    // tooltips
-    var tip = d3.tip()
-    .attr('class', 'd3-tip')
-    .offset([-10, 0])
-    .html(function(d) {
-        s = '<strong>Year: </strong>' + d.YYYY + '</br><strong>Deaths: </strong>' + d.ALL + '</br>'
-        return s;})
-
     // Initialize plot with ALL 
     svg = d3.select('#plot1');
     svg.attr('height', h + 2*margin)
@@ -66,49 +58,30 @@ async function dvsyr() {
     .data(data)
     .enter()
     .append('rect')
-    .attr('y',h - 2*margin)
-    .attr('height',0)
-    .attr('x',function(d,i) {return xs(parseInt(d.YYYY));})
-    .attr('width',function(d,i) {return xs(start_yr);})
-    .attr('fill','#4E96A6')
-    .transition().duration(tt).delay(function(d,i) {return(i-1)*25 + tdel;})
-    .attr('y',function(d,i) {return ys(parseInt(d.ALL));})
-    .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d.ALL));})
-    .attr('fill',function(d,i) {return cs(parseInt(d.ALL));})
-    .on('mouseover', tip.show)
-    .on('mouseout', tip.hide)
-
-    // Axes
-    svg.append('g')
-    .attr('transform','translate('+margin+','+margin+')')
-    .call(d3.axisLeft(ys));
-    
-    svg.append('g')
-    .attr('transform','translate('+margin+','+(h-margin)+')')
-    .call(d3.axisBottom(xs).tickValues(ticks));
+        .attr('y',h - 2*margin)
+        .attr('height',0)
+        .attr('x',function(d,i) {return xs(parseInt(d.YYYY));})
+        .attr('width',function(d,i) {return xs(start_yr);})
+        .attr('fill','#4E96A6')
+        .transition().duration(tt).delay(function(d,i) {return(i-1)*25 + tdel;})
+        .attr('y',function(d,i) {return ys(parseInt(d.ALL));})
+        .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d.ALL));})
+        .attr('fill',function(d,i) {return cs(parseInt(d.ALL));})
+        .on('mouseover', tip.show)
+        .on('mouseout', tip.hide)
 
     // A function that update the chart
     function update(selectedGroup) {
 
-        // Update tooltip text 
-        tip = d3.tip()
-        .attr('class', 'd3-tip')
-        .offset([-10, 0])
-        .html(function(d) {
-            s = '<strong>Year: </strong>' + d.YYYY + '</br><strong>Deaths: </strong>' + d[selectedGroup] + '</br>'
-            return s;})
-
         // Give these new data to update rects
+        // svg.selectAll('rect').remove()
 
-        svg.call(tip).selectAll('rect')
+        svg.selectAll('rect')
         .data(data)
         .transition().duration(tt).delay(function(d,i) {return(i-1)*25 + tdel;})
         .attr('y',function(d,i) {return ys(parseInt(d[selectedGroup]));})
         .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d[selectedGroup]));})
         .attr('fill',function(d,i) {return cs(parseInt(d[selectedGroup]));})
-        .on('mouseover', tip.show)
-        .on('mouseout', tip.hide)
-
     }
 
     // When the button is changed, run the updateChart function
@@ -119,6 +92,13 @@ async function dvsyr() {
         update(selectedOption)
     })
 
+    // tooltips
+    var tip = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function(d) {
+            s = '<strong>Year: </strong>' + d.YYYY + '</br><strong>Deaths: </strong>' + d.ALL + '</br>'
+            return s;})
 
     // .append('g')
     //     .attr('transform','translate('+margin+','+margin+')')
@@ -166,7 +146,28 @@ async function dvsyr() {
     //     .attr('y',function(d,i) {return ys(parseInt(d.Northeast) + parseInt(d.Maritime) + parseInt(d.Continental));})
     //     .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d.Northeast));})
     //     .attr('fill',clrs['Northeast'])
-
+    // svg.append('g')
+    //     .attr('transform','translate('+margin+','+margin+')')
+    // .call(tip)
+    // .selectAll('rect')
+    // .data(data)
+    // .enter()
+    // .append('rect')
+    //     .attr('y',function(d,i) {return ys(parseInt(d.Northeast) + parseInt(d.Maritime) + parseInt(d.Continental));})
+    //     .attr('height',function(d,i) {return h-2*margin-ys(parseInt(d.Northeast) + parseInt(d.Maritime) + parseInt(d.Continental));})
+    //     .attr('x',function(d,i) {return xs(parseInt(d.YYYY));})
+    //     .attr('width',function(d,i) {return xs(start_yr);})
+    //     .attr('opacity',0.0)
+    //     .attr('stroke-width',0)
+    //     .on('mouseover', tip.show)
+    //     .on('mouseout', tip.hide)
+        
+    svg.append('g')
+        .attr('transform','translate('+margin+','+margin+')')
+        .call(d3.axisLeft(ys));
+    svg.append('g')
+        .attr('transform','translate('+margin+','+(h-margin)+')')
+        .call(d3.axisBottom(xs).tickValues(ticks));
 
 }
 
