@@ -176,9 +176,6 @@ async function dvsyr() {
         .attr('transform','translate('+margin+','+(h-margin)+')')
         .call(d3.axisBottom(xs).tickValues(ticks));
 
-})
-
-
 }
 
 // async function states() {
