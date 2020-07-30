@@ -91,7 +91,9 @@ async function dvsyr() {
             return s;})
         console.log(d3.select('#ttp').html)
 
-        d3.selectAll('#ttips').data(data)
+        d3.select('#ttb')
+        .call(tip)
+        .selectAll('#ttips').data(data)
         .attr('y',function(d,i) {return ys(parseInt(d[selectedGroup])+1);})
         .attr('height',function(d,i) {return h-2*margin-ys(parseInt(d[selectedGroup])+1);})
         .attr('x',function(d,i) {return xs(parseInt(d.YYYY));})
@@ -163,6 +165,7 @@ async function dvsyr() {
     //     .attr('fill',clrs['Northeast'])
     svg.append('g')
         .attr('transform','translate('+margin+','+margin+')')
+        .attr('id','ttb')
     .call(tip)
     .selectAll('rect')
     .data(data)
