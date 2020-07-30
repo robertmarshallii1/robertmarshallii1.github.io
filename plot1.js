@@ -61,6 +61,7 @@ async function dvsyr() {
 
     svg.append('g')
     .attr('transform','translate('+margin+','+margin+')')
+    .append('select')
     .attr('id','selectButton')
     .attr('class','select-css')
 
