@@ -29,7 +29,7 @@ async function dvsyr() {
         ticks = multiplesOf(ddomain,5)
     }
     var ys = d3.scaleLinear().domain(ydomain).range(yrange);
-    var cs = d3.scaleLinear().domain([0,36]).range(['#C2C5C8','#4E96A6']);
+    var cs = d3.scaleLinear().domain([0,36]).range(['#4E96A6','#D99E32']);
     var clrs = {'Continental': '#D99E32', 'Maritime': '#4E96A6', 'Northeast': '#C2C5C8'};
     var tdel = 50;
     var tt = 1500;
