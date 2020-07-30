@@ -216,7 +216,7 @@ async function dvsyr() {
     svg.append("text")
         .attr('id','plotitle')
         .attr("x", (w / 2))             
-        .attr("y", 0 - (0.5*margin))
+        .attr("y", 0.5*margin)
         .attr("text-anchor", "middle")  
         .style('font','20px sans-serif') 
         .text("Avalanche Deaths vs Year");
