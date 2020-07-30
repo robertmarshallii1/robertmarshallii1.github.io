@@ -203,14 +203,23 @@ async function dvsyr() {
     .attr("x",0 - (h/2))
     .attr("dy", "1em")
     .style('text-anchor', 'middle')
-    .style('font','15px Arial, sans-serif')
+    .style('font','15px sans-serif')
     .text('Deaths');
 
     svg.append("text")             
     .attr("transform","translate("+(w/2)+" ,"+(h - 0.5*margin)+")")
     .style("text-anchor", "middle")
-    .style('font','15px Arial, sans-serif')
+    .style('font','15px sans-serif')
     .text('Year');
+
+    // Title
+    svg.append("text")
+        .attr('id','plotitle')
+        .attr("x", (w / 2))             
+        .attr("y", 0 - (0.5*margin))
+        .attr("text-anchor", "middle")  
+        .style('font','20px sans-serif') 
+        .text("Avalanche Deaths vs Year");
 
 }
 
