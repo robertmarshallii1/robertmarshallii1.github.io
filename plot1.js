@@ -34,7 +34,7 @@ async function dvsyr() {
     var tdel = 50;
     var tt = 1500;
 
-    // List of groups (here I have one group per column)
+    // List of states
     var allGroup = ['ALL','AK', 'AZ', 'CA', 'CO', 'ID', 'ME', 'MT', 'ND', 'NH', 'NM', 'NV', 'NY', 'OR', 'UT', 'VT', 'WA', 'WY']
 
     // add the options to the button
@@ -43,8 +43,8 @@ async function dvsyr() {
         .data(allGroup)
     .enter()
         .append('option')
-    .text(function (d) { return d; }) // text showed in the menu
-    .attr("value", function (d) { return d; }) // corresponding value returned by the button
+    .text(function (d) { return d; }) // text shown in the menu
+    .attr('value', function (d) { return d; }) // corresponding value returned by the button
 
     // Initialize plot with all
     svg = d3.select('#plot1');
@@ -70,25 +70,15 @@ async function dvsyr() {
     // A function that update the chart
     function update(selectedGroup) {
 
-        // Create new data with the selection
-        // var dataFilter = data.map(function(d) {return {YYYY: d.YYYY, value:d[selectedGroup]};})
-
-        // Give these new data to update line
+        // Give these new data to update rects
         svg.append('g')
         .attr('transform','translate('+margin+','+margin+')')
         .selectAll('rect')
         .data(data)
-        .enter()
-        .append('rect')
-        .attr('y',h - 2*margin)
-        .attr('height',0)
-        .attr('x',function(d,i) {return xs(parseInt(d.YYYY));})
-        .attr('width',function(d,i) {return xs(start_yr);})
-        .attr('fill','#4E96A6')
         .transition().duration(tt).delay(function(d,i) {return(i-1)*25 + tdel;})
         .attr('y',function(d,i) {return ys(parseInt(d[selectedGroup]));})
         .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d[selectedGroup]));})
-        .attr('fill',function(d,i) {return cs(parseInt(d.value));})
+        .attr('fill',function(d,i) {return cs(parseInt(d[selectedGroup]));})
     }
 
     // When the button is changed, run the updateChart function
