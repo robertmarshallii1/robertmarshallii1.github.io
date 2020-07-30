@@ -80,11 +80,11 @@ async function dvsyr() {
         .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d[selectedGroup]));})
         .attr('fill',function(d,i) {return cs(parseInt(d[selectedGroup]));})
 
-        d3.selectAll('.d3-tip').html(function(d) {
+        d3.selectAll('.d3-tip').data(data).html(function(d) {
             s = '<strong>Year: </strong>' + d.YYYY + '</br><strong>Deaths: </strong>' + d[selectedGroup] + '</br>'
             return s;})
 
-        d3.selectAll('#ttips')
+        d3.selectAll('#ttips').data(data)
         .attr('y',function(d,i) {return ys(parseInt(d[selectedGroup]));})
         .attr('height',function(d,i) {return h-2*margin-ys(parseInt(d[selectedGroup]));})
         .attr('x',function(d,i) {return xs(parseInt(d.YYYY));})
