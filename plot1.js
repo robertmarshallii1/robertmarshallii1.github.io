@@ -174,7 +174,13 @@ async function dvsyr() {
         
     svg.append('g')
         .attr('transform','translate('+margin+','+margin+')')
-        .call(d3.axisLeft(ys));
+        .call(d3.axisLeft(ys))
+        .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 6)
+        .attr("dy", ".71em")
+        .style("text-anchor", "end")
+        .text("Deaths");
     svg.append('g')
         .attr('transform','translate('+margin+','+(h-margin)+')')
         .call(d3.axisBottom(xs).tickValues(ticks));
