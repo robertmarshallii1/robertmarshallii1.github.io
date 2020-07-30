@@ -224,7 +224,7 @@ async function dvsyr() {
         .style('font','20px sans-serif') 
         .text("Avalanche Deaths vs Year");
 
-    // Title
+    // Annotation
     svg.append("text")
         .attr('id','ant')
         .attr("x", w/8)             
@@ -232,7 +232,7 @@ async function dvsyr() {
         .attr("text-anchor", "middle")  
         .style('font','15px sans-serif')
         .data(data)
-        .text(function(d) {console.log(d3.sum(d['ALL'])); return 'Total deaths: ' + d3.sum(d['ALL']);});
+        .text('Total deaths: ' + d3.sum(data, function(d) {return d.ALL;}));
 
 }
 
