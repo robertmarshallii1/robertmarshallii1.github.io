@@ -7,7 +7,7 @@ async function dvsyr() {
     data['cnt'] = data['US'];
     var parser = d3.timeParse("%m.%d.%Y");
     data['dt'] = parser(data['Date'])
-    console.log(dt)
+    console.log(data['dt'])
     var w = window.screen.width*0.75;
     var h = window.screen.height*0.5; 
     var margin = window.screen.height*0.1; 
