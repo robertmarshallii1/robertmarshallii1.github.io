@@ -34,26 +34,46 @@ async function dvsyr() {
     var tdel = 50;
     var tt = 1500;
 
-    //Read the data
-    d3.csv('avydeaths.csv', function(data) {
+    // List of groups (here I have one group per column)
+    var allGroup = ['ALL','AK', 'AZ', 'CA', 'CO', 'ID', 'ME', 'MT', 'ND', 'NH', 'NM', 'NV', 'NY', 'OR', 'UT', 'VT', 'WA', 'WY']
 
-        // List of groups (here I have one group per column)
-        var allGroup = ['ALL','AK', 'AZ', 'CA', 'CO', 'ID', 'ME', 'MT', 'ND', 'NH', 'NM', 'NV', 'NY', 'OR', 'UT', 'VT', 'WA', 'WY']
+    // add the options to the button
+    d3.select('#selectButton')
+    .selectAll('myOptions')
+        .data(allGroup)
+    .enter()
+        .append('option')
+    .text(function (d) { return d; }) // text showed in the menu
+    .attr("value", function (d) { return d; }) // corresponding value returned by the button
 
-        // add the options to the button
-        d3.select('#selectButton')
-        .selectAll('myOptions')
-            .data(allGroup)
-        .enter()
-            .append('option')
-        .text(function (d) { return d; }) // text showed in the menu
-        .attr("value", function (d) { return d; }) // corresponding value returned by the button
+    // Initialize plot with all
+    svg = d3.select('#plot1');
+    svg.attr('height', h + 2*margin)
+    .attr('width', w + 2 * margin)
 
-        // Initialize plot with all
-        svg = d3.select('#plot1');
-        svg.attr('height', h + 2*margin)
-        .attr('width', w + 2 * margin)
+    svg.append('g')
+    .attr('transform','translate('+margin+','+margin+')')
+    .selectAll('rect')
+    .data(data)
+    .enter()
+    .append('rect')
+    .attr('y',h - 2*margin)
+    .attr('height',0)
+    .attr('x',function(d,i) {return xs(parseInt(d.YYYY));})
+    .attr('width',function(d,i) {return xs(start_yr);})
+    .attr('fill','#4E96A6')
+    .transition().duration(tt).delay(function(d,i) {return(i-1)*25 + tdel;})
+    .attr('y',function(d,i) {return ys(parseInt(d.ALL));})
+    .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d.ALL));})
+    .attr('fill',function(d,i) {return cs(parseInt(d.ALL));})
 
+    // A function that update the chart
+    function update(selectedGroup) {
+
+        // Create new data with the selection
+        // var dataFilter = data.map(function(d) {return {YYYY: d.YYYY, value:d[selectedGroup]};})
+
+        // Give these new data to update line
         svg.append('g')
         .attr('transform','translate('+margin+','+margin+')')
         .selectAll('rect')
@@ -66,33 +86,10 @@ async function dvsyr() {
         .attr('width',function(d,i) {return xs(start_yr);})
         .attr('fill','#4E96A6')
         .transition().duration(tt).delay(function(d,i) {return(i-1)*25 + tdel;})
-        .attr('y',function(d,i) {return ys(parseInt(d.ALL));})
-        .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d.ALL));})
-        .attr('fill',function(d,i) {return cs(parseInt(d.ALL));})
-
-        // A function that update the chart
-        function update(selectedGroup) {
-
-            // Create new data with the selection
-            // var dataFilter = data.map(function(d) {return {YYYY: d.YYYY, value:d[selectedGroup]};})
-
-            // Give these new data to update line
-            svg.append('g')
-            .attr('transform','translate('+margin+','+margin+')')
-            .selectAll('rect')
-            .data(data)
-            .enter()
-            .append('rect')
-            .attr('y',h - 2*margin)
-            .attr('height',0)
-            .attr('x',function(d,i) {return xs(parseInt(d.YYYY));})
-            .attr('width',function(d,i) {return xs(start_yr);})
-            .attr('fill','#4E96A6')
-            .transition().duration(tt).delay(function(d,i) {return(i-1)*25 + tdel;})
-            .attr('y',function(d,i) {return ys(parseInt(d[selectedGroup]));})
-            .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d[selectedGroup]));})
-            .attr('fill',function(d,i) {return cs(parseInt(d.value));})
-        }
+        .attr('y',function(d,i) {return ys(parseInt(d[selectedGroup]));})
+        .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d[selectedGroup]));})
+        .attr('fill',function(d,i) {return cs(parseInt(d.value));})
+    }
 
     // When the button is changed, run the updateChart function
     d3.select("#selectButton").on("change", function(d) {
