@@ -232,7 +232,7 @@ async function dvsyr() {
         .attr("text-anchor", "middle")  
         .style('font','15px sans-serif')
         .data(data)
-        .text(function(d) {console.log(d.ALL); return 'Total deaths: ' + d3.sum(d['ALL']);});
+        .text(function(d) {console.log(d3.sum(d['ALL'])); return 'Total deaths: ' + d3.sum(d['ALL']);});
 
 }
 
