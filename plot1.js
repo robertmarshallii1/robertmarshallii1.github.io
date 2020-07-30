@@ -53,7 +53,6 @@ async function dvsyr() {
 
     svg.append('g')
     .attr('transform','translate('+margin+','+margin+')')
-    .call(tip)
     .selectAll('rect')
     .data(data)
     .enter()
