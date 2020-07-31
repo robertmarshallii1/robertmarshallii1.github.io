@@ -120,7 +120,6 @@ async function dvsyr() {
                 
             })
             .duration(tt + 69*tdel)
-        .text('Total deaths: ' + d3.sum(data, function(d) {return d[selectedGroup];}));
     }
 
     // When the button is changed, run the updateChart function
