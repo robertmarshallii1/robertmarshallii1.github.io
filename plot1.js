@@ -107,11 +107,11 @@ async function dvsyr() {
         // Update annotation
         d3.select('#ant')
         .data(data)
-        .text()
         .transition()
             .tween("text", function() {
                 var selection = d3.select(this);    // selection of node being transitioned
                 var start = d3.select(this).text().match(/\d+/)[0]; // start value prior to transition
+                console.log(start)
                 var end = d3.sum(data, function(d) {return d[selectedGroup];});                     // specified end value
                 var interpolator = d3.interpolateNumber(start,end); // d3 interpolator
         
