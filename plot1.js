@@ -245,7 +245,7 @@ async function dvsyr() {
         .attr('transform','translate('+margin+','+margin+')')
         .attr('id','ant')
         .attr("x", xs(1953))             
-        .attr("y", ys(30))
+        .attr("y", ys(33))
         .attr("text-anchor", "start")  
         .style('font','15px sans-serif')
         .data(data)
