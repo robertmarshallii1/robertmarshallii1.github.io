@@ -118,7 +118,7 @@ async function dvsyr() {
                 return function(t) {selection.text('Total deaths: ' + Math.round(interpolator(t))); };  // return value
                 
             })
-            .duration(tt + 69*tdel)
+            .duration(tt + 1250)
     }
 
     // When the button is changed, run the updateChart function
@@ -257,7 +257,7 @@ async function dvsyr() {
                 return function(t) {selection.text('Total deaths: ' + Math.round(interpolator(t))); };  // return value
                 
             })
-            .duration(tt + 68*25)
+            .duration(tt + 1250)
 
 }
 
