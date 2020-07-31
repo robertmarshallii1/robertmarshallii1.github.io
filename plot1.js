@@ -107,7 +107,18 @@ async function dvsyr() {
         // Update annotation
         d3.select('#ant')
         .data(data)
-        .transition().duration(tt)
+        .transition()
+        .transition()
+            .tween("text", function() {
+                var selection = d3.select(this);    // selection of node being transitioned
+                var start = d3.select(this).text().match(/\d+/)[0]; // start value prior to transition
+                var end = d3.sum(data, function(d) {return d[selectedGroup];});                     // specified end value
+                var interpolator = d3.interpolateNumber(start,end); // d3 interpolator
+        
+                return function(t) {selection.text('Total deaths: ' + Math.round(interpolator(t))); };  // return value
+                
+            })
+            .duration(tt + 69*tdel)
         .text('Total deaths: ' + d3.sum(data, function(d) {return d[selectedGroup];}));
     }
 
@@ -247,7 +258,7 @@ async function dvsyr() {
                 return function(t) {selection.text('Total deaths: ' + Math.round(interpolator(t))); };  // return value
                 
             })
-            .duration(tt + 69*tdel)
+            .duration(tt + 68*25)
 
 }
 
