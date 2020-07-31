@@ -236,18 +236,18 @@ async function dvsyr() {
         .attr("text-anchor", "start")  
         .style('font','15px sans-serif')
         .data(data)
-        .text(0)
+        .text('Total deaths: ' + 0)
         .transition()
             .tween("text", function() {
                 var selection = d3.select(this);    // selection of node being transitioned
-                var start = 0; // start value prior to transition
+                var start = d3.select(this).text().match(/\d+/)[0]; // start value prior to transition
                 var end = d3.sum(data, function(d) {return d.ALL;});                     // specified end value
                 var interpolator = d3.interpolateNumber(start,end); // d3 interpolator
         
-                return function(t) { selection.text(Math.round(interpolator(t))); };  // return value
+                return function(t) { 'Total deahts: ' + selection.text(Math.round(interpolator(t))); };  // return value
                 
             })
-            .duration(tt)
+            .duration(tt + 69*tdel)
 
 }
 
