@@ -20,9 +20,9 @@ rect {
 .right {
     width: 20%;
     margin-top: 5%;
-    font-size: 14px;
+    font-size: 15px;
     font-family: sans-serif;
-    line-height: 0.5em;
+    line-height: 0.0;
 }
 
 .plot {
