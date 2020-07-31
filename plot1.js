@@ -236,7 +236,7 @@ async function dvsyr() {
         .attr("text-anchor", "start")  
         .style('font','15px sans-serif')
         .data(data)
-        .text('Total deaths: 0')
+        .text(0)
         .transition()
             .tween("text", function() {
                 var selection = d3.select(this);    // selection of node being transitioned
@@ -244,11 +244,10 @@ async function dvsyr() {
                 var end = d3.sum(data, function(d) {return d.ALL;});                     // specified end value
                 var interpolator = d3.interpolateNumber(start,end); // d3 interpolator
         
-                return function(t) { selection.text('Total deaths: ' + Math.round(interpolator(t))); };  // return value
+                return function(t) { selection.text(Math.round(interpolator(t))); };  // return value
                 
             })
             .duration(tt)
-        .text('Total deaths: ' + d3.sum(data, function(d) {return d.ALL;}));
 
 }
 
