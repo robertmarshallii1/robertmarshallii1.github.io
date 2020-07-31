@@ -107,6 +107,7 @@ async function dvsyr() {
         // Update annotation
         d3.select('#ant')
         .data(data)
+        .text('Total deaths: 0')
         .transition()
             .tween("text", function() {
                 var selection = d3.select(this);    // selection of node being transitioned
