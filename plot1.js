@@ -34,6 +34,9 @@ async function dvsyr() {
     var tdel = 50;
     var tt = 1500;
 
+    d3.select('.right')
+    .attr('margin-top',margin)
+
     // Initialize svg element
     svg = d3.select('#plot1');
     svg.attr('height', h + 2*margin)
