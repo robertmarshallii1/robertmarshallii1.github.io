@@ -57,16 +57,12 @@ async function dvsyr() {
     .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d.ALL));})
     .attr('fill',function(d,i) {return cs(parseInt(d.ALL));})
 
-    // List of states
-    var allGroup = ['ALL','AK', 'AZ', 'CA', 'CO', 'ID', 'ME', 'MT', 'ND', 'NH', 'NM', 'NV', 'NY', 'OR', 'UT', 'VT', 'WA', 'WY']
-
-    svg.append('select')
-    .attr('id','#selectButton')
-    .attr('class','css-select')
-
     // Add select to change state
     d3.selectAll('#selectButton')
     .attr('transform','translate('+margin+','+margin+')')
+
+    // List of states
+    var allGroup = ['ALL','AK', 'AZ', 'CA', 'CO', 'ID', 'ME', 'MT', 'ND', 'NH', 'NM', 'NV', 'NY', 'OR', 'UT', 'VT', 'WA', 'WY']
 
     // add the state options to the select element
     d3.select('#selectButton')
