@@ -20,6 +20,8 @@ rect {
 .right {
     width: 20%;
     margin-top: 5%;
+    font-size: 12px;
+	font-family: sans-serif;
 }
 
 .plot {
