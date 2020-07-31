@@ -140,6 +140,7 @@ body, html {
     padding: 18px;
     font-size: 25px;
     letter-spacing: 10px;
+    opacity: 1.25;
   }
   
   h3 {
