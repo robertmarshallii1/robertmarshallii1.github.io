@@ -7,6 +7,10 @@ rect {
     stroke: black;
 }
 
+.plot {
+    text-align: center;
+}
+
 .parallax {
     background-attachment: fixed;
     background-position: center;
