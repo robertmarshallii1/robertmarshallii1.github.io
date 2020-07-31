@@ -14,11 +14,11 @@ rect {
 }
 
 .left {
-    width: 25%;
+    width: 75%;
 }
 
 .right {
-    width: 75%;
+    width: 20%;
 }
 
 .plot {
