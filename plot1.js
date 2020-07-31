@@ -108,7 +108,6 @@ async function dvsyr() {
         d3.select('#ant')
         .data(data)
         .transition()
-        .transition()
             .tween("text", function() {
                 var selection = d3.select(this);    // selection of node being transitioned
                 var start = d3.select(this).text().match(/\d+/)[0]; // start value prior to transition
