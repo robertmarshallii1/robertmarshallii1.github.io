@@ -311,7 +311,7 @@ async function decadeplots() {
             .domain(data.map(function(d) {return d.Activity;}))
             .range(xrange)
 
-        var chid = 'bars' + i;        
+        var chid = 'decbars' + i;        
         svg2.append('g')
         .attr('transform','translate('+margin+','+margin+')')
         .selectAll('rect')
@@ -445,7 +445,7 @@ async function showSlides(n) {
         console.log(slideIndex);
         
         // Transition
-        var brs = 'bars' + slideIndex;
+        var brs = 'decbars' + slideIndex;
         console.log(brs);
         const d50 = await d3.csv('avyAct50s.csv');
         const d60 = await d3.csv('avyAct60s.csv');
