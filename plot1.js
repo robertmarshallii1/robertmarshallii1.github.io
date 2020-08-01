@@ -429,6 +429,7 @@ function currentSlide(n) {
 async function showSlides(n) {
     var i;
     var slides = document.getElementsByClassName("mySlides");
+    console.log('Slides: ' + slides.length);
     var dots = document.getElementsByClassName("dot");
     if (n > slides.length) {slideIndex = 1}
     if (n < 1) {slideIndex = slides.length}
@@ -439,8 +440,7 @@ async function showSlides(n) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
     slides[slideIndex-1].style.display = "block";
-    console.log('test');
-    console.log(slideIndex);
+    console.log('Slide index: ' + slideIndex-1);
     
     // Transition
     var brs = 'bars' + (slideIndex-1);
