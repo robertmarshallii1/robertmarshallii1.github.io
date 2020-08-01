@@ -278,8 +278,8 @@ async function decadeplots() {
     const d00 = await d3.csv('avyAct00s.csv');
     const d10 = await d3.csv('avyAct10s.csv');
 
-    data = d50;
-    data = data.slice(0,10);
+    dat = d50;
+    dat = dat.slice(0,10);
 
     var w = window.screen.width*0.8;
     var h = window.screen.height*0.5; 
