@@ -194,7 +194,7 @@ async function decadeplots() {
         .attr("y", ys(100))
         .attr("text-anchor", "start")  
         .style('font','15px sans-serif')
-        .data(data)
+        .data(d50)
         .text('Total deaths: 0')
         .transition()
             .tween("text", function() {
