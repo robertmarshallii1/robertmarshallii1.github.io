@@ -2,7 +2,7 @@ async function init() {
     await dvsyr();
     await decadeplots();
     var slideIndex = 1;
-    showSlides(slideIndex);
+    await showSlides(slideIndex);
 }
 
 function multiplesOf(numbers, number) { 
