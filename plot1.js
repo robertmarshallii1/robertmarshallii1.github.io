@@ -278,7 +278,7 @@ async function decadeplots() {
     var w = window.screen.width*0.75;
     var h = window.screen.height*0.5; 
     var margin = window.screen.height*0.1; 
-    var xdomain = [0,10];
+    var xdomain = [0,1,2,3,4,5,6,7,8,9,10];
     var xrange = [0,w-2*margin];
     var xs = d3.scaleBand().domain(xdomain).range(xrange);
     var ydomain = [0,120]
