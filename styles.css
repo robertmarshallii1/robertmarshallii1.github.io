@@ -174,11 +174,6 @@ img {vertical-align: middle;}
     padding: 20px;
 }
 
-.sschart {
-    display: block;
-    margin: 0 auto;
-}
-
 /* Next & previous buttons */
 .prev, .next {
     cursor: pointer;
