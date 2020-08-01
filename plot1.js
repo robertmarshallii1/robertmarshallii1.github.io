@@ -311,13 +311,14 @@ async function decadeplots() {
             .domain(data.map(function(d) {return d.Activity;}))
             .range(xrange)
 
+        var chid = 'bars' + i;        
         svg2.append('g')
         .attr('transform','translate('+margin+','+margin+')')
         .selectAll('rect')
         .data(data)
         .enter()
         .append('rect')
-        .attr('id','bars2')
+        .attr('id',chid)
         .attr('y',h - 2*margin)
         .attr('height',0)
         .attr('x',function(d,i) {return xs(d.Activity);})
@@ -426,17 +427,45 @@ function currentSlide(n) {
 }
 
 function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    
+    // Transition
+    var brs = 'bars' + (slideIndex-1);
+    const d50 = await d3.csv('avyAct50s.csv');
+    const d60 = await d3.csv('avyAct60s.csv');
+    const d70 = await d3.csv('avyAct70s.csv');
+    const d80 = await d3.csv('avyAct80s.csv');
+    const d90 = await d3.csv('avyAct90s.csv');
+    const d00 = await d3.csv('avyAct00s.csv');
+    const d10 = await d3.csv('avyAct10s.csv');
+    var dfs = [d50,d60,d70,d80,d90,d00,d10];
+    var data = dfs[slideIndex-1];
+    data = data.slice(0,10);
+    d3.selectAll(brs)
+    .data(data)
+    .enter()
+    .append('rect')
+        .attr('id','bars2')
+        .attr('y',h - 2*margin)
+        .attr('height',0)
+        .attr('x',function(d,i) {return xs(d.Activity);})
+        .attr('width',xs.bandwidth())
+        .attr('fill','#4E96A6')
+        .transition().duration(tt).delay(function(d,i) {return(i-1)*25 + tdel;})
+        .attr('y',function(d,i) {return ys(parseInt(d.KL));})
+        .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d.KL));})
+        .attr('fill',function(d,i) {return cs(parseInt(d.KL));})
+
+    dots[slideIndex-1].className += " active";
 }
