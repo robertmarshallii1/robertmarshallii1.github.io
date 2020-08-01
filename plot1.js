@@ -390,13 +390,14 @@ async function decadeplots() {
             .style('font','15px "Lato", sans-serif')
             .style('letter-spacing','3px')
             .style('text-transform','uppercase')
-            .text("Avalanche Deaths vs Activity: 1951-1959");
+            .text("Avalanche Deaths vs Activity: " + yr[i]);
 
         // Annotation
+        var ant = "ant" + i
         data = dfs[i];
         svg2.append("text")
             .attr('transform','translate('+margin+','+margin+')')
-            .attr('id','ant2')
+            .attr('id',ant)
             .attr("x", xs.bandwidth()*10)             
             .attr("y", ys(110))
             .attr("text-anchor", "end")  
