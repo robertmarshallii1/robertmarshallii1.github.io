@@ -293,9 +293,9 @@ async function decadeplots() {
     var tt = 1500;
 
     // Initialize svg element
-    // svg = d3.select('#plot2');
-    // svg.attr('height', h + 2*margin)
-    // .attr('width', w + 2 * margin)
+    svg2 = d3.select('#plot2');
+    svg2.attr('height', h + 2*margin)
+    .attr('width', w + 2 * margin)
 
     // // Initialize plot with 50s 
 
