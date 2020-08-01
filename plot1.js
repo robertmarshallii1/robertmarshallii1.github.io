@@ -299,10 +299,11 @@ async function decadeplots() {
 
     // Initialize plot with 50s 
 
+    data = d50;
     svg.append('g')
     .attr('transform','translate('+margin+','+margin+')')
     .selectAll('rect')
-    .data(d50)
+    .data(data)
     .enter()
     .append('rect')
     .attr('y',h - 2*margin)
@@ -329,7 +330,7 @@ async function decadeplots() {
         .attr('id','ttb')
     .call(tip)
     .selectAll('rect')
-    .data(d50)
+    .data(data)
     .enter()
     .append('rect')
         .attr('id','ttips')
@@ -387,7 +388,7 @@ async function decadeplots() {
         .attr("y", ys(100))
         .attr("text-anchor", "start")  
         .style('font','15px sans-serif')
-        .data(d50)
+        .data(data)
         .text('Total deaths: 0')
         .transition()
             .tween("text", function() {
