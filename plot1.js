@@ -231,15 +231,15 @@ async function dvsyr() {
     .style('font','15px sans-serif')
     .text('Year');
 
-    // Title
-    svg.append("text")
-        .attr('id','plotitle')
-        .attr("x", (w / 2))             
-        .attr("y", 0.5*margin)
-        .attr("text-anchor", "middle")  
-        .style('font','20px "Lato", sans-serif')
-        .style('letter-spacing','5px')
-        .text("Avalanche Deaths vs Year");
+    // // Title
+    // svg.append("text")
+    //     .attr('id','plotitle')
+    //     .attr("x", (w / 2))             
+    //     .attr("y", 0.5*margin)
+    //     .attr("text-anchor", "middle")  
+    //     .style('font','20px "Lato", sans-serif')
+    //     .style('letter-spacing','5px')
+    //     .text("Avalanche Deaths vs Year");
 
     // Annotation
     svg.append("text")
