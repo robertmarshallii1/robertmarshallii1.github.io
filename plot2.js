@@ -16,14 +16,10 @@ async function decadeplots() {
     var xrange = [0,w-2*margin];
     var ydomain = [0,120]
     var yrange = [h-2*margin,0];
-    // var ticks = 
     var ys = d3.scaleLinear().domain(ydomain).range(yrange);
     var cs = d3.scaleLinear().domain(ydomain).range(['#4E96A6','#D99E32']);
     var tdel = 50;
     var tt = 1500;
-
-    d3.select('.right')
-    .attr('margin-top',margin)
 
     // Initialize svg element
     svg = d3.select('#plot2');
@@ -33,15 +29,17 @@ async function decadeplots() {
     // Initialize plot with 50s 
 
     var xs = d3.scaleBand()
-          .domain(data.map(function(d) {return d['Activity'];}))
+          .domain(data.map(function(d) {return d.Activity;}))
           .range(xrange)
 
     svg.append('g')
+    .attr('id','chart2')
     .attr('transform','translate('+margin+','+margin+')')
     .selectAll('rect')
     .data(data)
     .enter()
     .append('rect')
+    .attr('id','bars2')
     .attr('y',h - 2*margin)
     .attr('height',0)
     .attr('x',function(d,i) {return xs(d.Activity);})
@@ -55,7 +53,7 @@ async function decadeplots() {
     // tooltips
     var tip = d3.tip()
         .attr('class', 'd3-tip')
-        .attr('id','ttp')
+        .attr('id','ttp2')
         .offset([-10, 0])
         .html(function(d) {
             s = '<strong>Activity: </strong>' + d.Activity + '</br><strong>Deaths: </strong>' + d.KL + '</br>'
@@ -63,13 +61,13 @@ async function decadeplots() {
 
     svg.append('g')
         .attr('transform','translate('+margin+','+margin+')')
-        .attr('id','ttb')
+        .attr('id','ttb2')
     .call(tip)
     .selectAll('rect')
     .data(data)
     .enter()
     .append('rect')
-        .attr('id','ttips')
+        .attr('id','ttips2')
         .attr('y',function(d,i) {return ys(parseInt(d.KL)+1);})
         .attr('height',function(d,i) {return h-2*margin-ys(parseInt(d.KL)+1);})
         .attr('x',function(d,i) {return xs(d.Activity);})
@@ -107,7 +105,7 @@ async function decadeplots() {
 
     // Title
     svg.append("text")
-        .attr('id','plotitle')
+        .attr('id','plotitle2')
         .attr("x", (w / 2))             
         .attr("y", 0.5*margin)
         .attr("text-anchor", "middle")  
@@ -120,7 +118,7 @@ async function decadeplots() {
     data = d50;
     svg.append("text")
         .attr('transform','translate('+margin+','+margin+')')
-        .attr('id','ant')
+        .attr('id','ant2')
         .attr("x", xs.bandwidth()*10)             
         .attr("y", ys(110))
         .attr("text-anchor", "end")  

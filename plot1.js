@@ -1,18 +1,3 @@
-function multiplesOf(numbers, number) { 
-    var multiples = []; 
-    for (var i = 0; i < numbers.length; i++) {
-        if (numbers[i] % number === 0) { // divide by the number
-        multiples.push(numbers[i]); // add the current multiple to arr
-        }
-    }
-    return multiples;
-}
-
-async function init() {
-    await dvsyr();
-    // await decadeplots();
-}
-
 async function dvsyr() {
     const data = await d3.csv('avydeaths.csv');
     var w = window.screen.width*0.75;
