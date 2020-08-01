@@ -264,7 +264,6 @@ async function dvsyr() {
                 
             })
             .duration(tt + 1250)
-
 }
 
 async function decadeplots() {
@@ -275,12 +274,14 @@ async function decadeplots() {
     const d90 = await d3.csv('avyAct90s.csv');
     const d00 = await d3.csv('avyAct00s.csv');
     const d10 = await d3.csv('avyAct10s.csv');
-    var w = window.screen.width*0.75;
+
+    data = d50;
+    data = data.slice(0,10);
+
+    var w = window.screen.width*0.8;
     var h = window.screen.height*0.5; 
-    var margin = window.screen.height*0.1; 
-    var xdomain = [0,1,2,3,4,5,6,7,8,9,10];
+    var margin = window.screen.height*0.1;
     var xrange = [0,w-2*margin];
-    var xs = d3.scaleBand().domain(xdomain).range(xrange);
     var ydomain = [0,120]
     var yrange = [h-2*margin,0];
     // var ticks = 
@@ -299,7 +300,10 @@ async function decadeplots() {
 
     // Initialize plot with 50s 
 
-    data = d50;
+    var xs = d3.scaleBand()
+          .domain(data.map(function(d) {return d['Activity'];}))
+          .range(xrange)
+
     svg.append('g')
     .attr('transform','translate('+margin+','+margin+')')
     .selectAll('rect')
@@ -349,9 +353,9 @@ async function decadeplots() {
         .attr('transform','translate('+margin+','+margin+')')
         .call(d3.axisLeft(ys))
 
-    // svg.append('g')
-    //     .attr('transform','translate('+margin+','+(h-margin)+')')
-    //     .call(d3.axisBottom(xs)); // .tickValues(ticks));
+    svg.append('g')
+        .attr('transform','translate('+margin+','+(h-margin)+')')
+        .call(d3.axisBottom(xs)); // .tickValues(ticks));
 
     // Axis labels
     svg.append("text")
@@ -381,6 +385,7 @@ async function decadeplots() {
         .text("Avalanche Deaths vs Activity: 1951-1959");
 
     // Annotation
+    data = d50;
     svg.append("text")
         .attr('transform','translate('+margin+','+margin+')')
         .attr('id','ant')
