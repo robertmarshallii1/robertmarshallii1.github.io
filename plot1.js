@@ -281,21 +281,21 @@ async function decadeplots() {
     data = d50;
     data = data.slice(0,10);
 
-    // var w = window.screen.width*0.8;
-    // var h = window.screen.height*0.5; 
-    // var margin = window.screen.height*0.1;
-    // var xrange = [0,w-2*margin];
-    // var ydomain = [0,120]
-    // var yrange = [h-2*margin,0];
-    // var ys = d3.scaleLinear().domain(ydomain).range(yrange);
-    // var cs = d3.scaleLinear().domain(ydomain).range(['#4E96A6','#D99E32']);
-    // var tdel = 50;
-    // var tt = 1500;
+    var w = window.screen.width*0.8;
+    var h = window.screen.height*0.5; 
+    var margin = window.screen.height*0.1;
+    var xrange = [0,w-2*margin];
+    var ydomain = [0,120]
+    var yrange = [h-2*margin,0];
+    var ys = d3.scaleLinear().domain(ydomain).range(yrange);
+    var cs = d3.scaleLinear().domain(ydomain).range(['#4E96A6','#D99E32']);
+    var tdel = 50;
+    var tt = 1500;
 
-    // // Initialize svg element
-    // svg = d3.select('#plot2');
-    // svg.attr('height', h + 2*margin)
-    // .attr('width', w + 2 * margin)
+    // Initialize svg element
+    svg = d3.select('#plot2');
+    svg.attr('height', h + 2*margin)
+    .attr('width', w + 2 * margin)
 
     // // Initialize plot with 50s 
 
