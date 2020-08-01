@@ -164,15 +164,12 @@ body, html {
 /* Slideshow container */
 .slideshow-container {
     position: relative;
-    margin: 0px;
-    height: 65%;
+    margin: auto;
 }
 
 .mySlides {
     display: none;
     width: 80%;
-    height: 60%;
-    margin: 0px;
 }
 
 /* Next & previous buttons */
