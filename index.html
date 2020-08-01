@@ -14,7 +14,7 @@
     <h1>TEST</h1>
 </div> -->
 <script src='plot1.js'></script>
-
+<script src='slideshow.js'></script>
 
 <div class="bgimg-1">
     <div class="caption">
@@ -41,7 +41,23 @@
 
 <div style="color: #777;background-color:#D7D7D9;text-align:center;padding:50px 80px;text-align: justify;min-height: 65%;">
     <!-- <h3 style="text-align:center;">Avalanche Deaths vs Year</h3> -->
-        <svg id="plot2"></svg>
+    <!-- Slideshow container -->
+    <div class="slideshow-container">    
+        <div class="mySlides fade">
+            <svg id="plot2"></svg>
+        </div>
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+
+    <!-- The dots/circles -->
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
 </div>
   
 <div style="position:relative;">
