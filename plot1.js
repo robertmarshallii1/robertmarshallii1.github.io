@@ -1,3 +1,8 @@
+async function init() {
+    await dvsyr();
+    await decadeplots();
+}
+
 async function dvsyr() {
     const data = await d3.csv('avydeaths.csv');
     var w = window.screen.width*0.75;
