@@ -311,14 +311,16 @@ async function decadeplots() {
             .domain(data.map(function(d) {return d.Activity;}))
             .range(xrange)
 
-        var chid = 'decbars' + i;        
+        var bid = 'decbars' + i;
+        var chid = 'dechart' + i;
         svg2.append('g')
+        .attr('id',chid)
         .attr('transform','translate('+margin+','+margin+')')
         .selectAll('rect')
         .data(data)
         .enter()
         .append('rect')
-        .attr('id',chid)
+        .attr('id',bid)
         .attr('y',h - 2*margin)
         .attr('height',0)
         .attr('x',function(d,i) {return xs(d.Activity);})
@@ -446,6 +448,7 @@ async function showSlides(n) {
         
         // Transition
         var brs = 'decbars' + slideIndex;
+        var chrt = 'dechart' + slideIndex;
         console.log(brs);
         const d50 = await d3.csv('avyAct50s.csv');
         const d60 = await d3.csv('avyAct60s.csv');
@@ -470,11 +473,9 @@ async function showSlides(n) {
         var xs = d3.scaleBand()
                 .domain(data.map(function(d) {return d.Activity;}))
                 .range(xrange)
-        d3.selectAll(brs)
+        d3.select(chrt)
+        .selectAll(brs)
         .data(data)
-        .enter()
-        .append('rect')
-            .attr('id','bars2')
             .attr('y',h - 2*margin)
             .attr('height',0)
             .attr('x',function(d,i) {return xs(d.Activity);})
