@@ -157,7 +157,7 @@ body, html {
 }
 
 .mySlides {display: none}
-img {vertical-align: middle;}
+.mySlides svg {vertical-align: middle;}
 
 * {box-sizing:border-box}
 
@@ -170,8 +170,6 @@ img {vertical-align: middle;}
 .mySlides {
     display: none;
     width: 85%;
-    margin: 0 auto;
-    padding: 20px;
 }
 
 /* Next & previous buttons */
