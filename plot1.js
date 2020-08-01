@@ -450,8 +450,21 @@ function showSlides(n) {
     const d00 = await d3.csv('avyAct00s.csv');
     const d10 = await d3.csv('avyAct10s.csv');
     var dfs = [d50,d60,d70,d80,d90,d00,d10];
+    var w = window.screen.width*0.8;
+    var h = window.screen.height*0.5; 
+    var margin = window.screen.height*0.1;
+    var xrange = [0,w-2*margin];
+    var ydomain = [0,120]
+    var yrange = [h-2*margin,0];
+    var ys = d3.scaleLinear().domain(ydomain).range(yrange);
+    var cs = d3.scaleLinear().domain(ydomain).range(['#4E96A6','#D99E32']);
+    var tdel = 50;
+    var tt = 1500;
     var data = dfs[slideIndex-1];
     data = data.slice(0,10);
+    var xs = d3.scaleBand()
+            .domain(data.map(function(d) {return d.Activity;}))
+            .range(xrange)
     d3.selectAll(brs)
     .data(data)
     .enter()
