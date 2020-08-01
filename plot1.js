@@ -47,11 +47,11 @@ async function dvsyr() {
 
     svg.append('g')
     .attr('transform','translate('+margin+','+margin+')')
-    .attr('id','firstPlot')
     .selectAll('rect')
     .data(data)
     .enter()
     .append('rect')
+    .attr('id','firstPlot')
     .attr('y',h - 2*margin)
     .attr('height',0)
     .attr('x',function(d,i) {return xs(parseInt(d.YYYY));})
@@ -84,8 +84,7 @@ async function dvsyr() {
         // Give these new data to update rects
         // svg.selectAll('rect').remove()
 
-        svg.select('#firstPlot')
-        .selectAll('rect')
+        svg.selectAll('#firstPlot')
         .data(data)
         .transition().duration(tt).delay(function(d,i) {return(i-1)*25 + tdel;})
         .attr('y',function(d,i) {return ys(parseInt(d[selectedGroup]));})
