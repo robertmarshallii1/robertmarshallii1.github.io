@@ -2,7 +2,7 @@ async function init() {
     await dvsyr();
     await decadeplots();
     var slideIndex = 1;
-    await showSlides(slideIndex);
+    showSlides(slideIndex);
 }
 
 function multiplesOf(numbers, number) { 
@@ -428,64 +428,21 @@ function currentSlide(n) {
   showSlides(slideIndex = n);
 }
 
-async function showSlides(n) {
+function showSlides(n) {
     var i;
     var slides = document.getElementsByClassName("mySlides");
-    if (slides.length > 0) {
-        console.log('Slides: ' + slides.length);
-        var dots = document.getElementsByClassName("dot");
-        if (n > slides.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex-1].style.display = "block";
-        console.log(slides[slideIndex-1])
-        console.log(slideIndex);
-        
-        // Transition
-        var brs = 'decbars' + slideIndex;
-        var chrt = 'dechart' + slideIndex;
-        console.log(brs);
-        const d50 = await d3.csv('avyAct50s.csv');
-        const d60 = await d3.csv('avyAct60s.csv');
-        const d70 = await d3.csv('avyAct70s.csv');
-        const d80 = await d3.csv('avyAct80s.csv');
-        const d90 = await d3.csv('avyAct90s.csv');
-        const d00 = await d3.csv('avyAct00s.csv');
-        const d10 = await d3.csv('avyAct10s.csv');
-        var dfs = [d50,d60,d70,d80,d90,d00,d10];
-        var w = window.screen.width*0.8;
-        var h = window.screen.height*0.5; 
-        var margin = window.screen.height*0.1;
-        var xrange = [0,w-2*margin];
-        var ydomain = [0,120]
-        var yrange = [h-2*margin,0];
-        var ys = d3.scaleLinear().domain(ydomain).range(yrange);
-        var cs = d3.scaleLinear().domain(ydomain).range(['#4E96A6','#D99E32']);
-        var tdel = 50;
-        var tt = 1500;
-        var data = dfs[slideIndex-1];
-        data = data.slice(0,10);
-        var xs = d3.scaleBand()
-                .domain(data.map(function(d) {return d.Activity;}))
-                .range(xrange)
-        d3.select(chrt)
-        .selectAll(brs)
-        .data(data)
-            .attr('y',h - 2*margin)
-            .attr('height',0)
-            .attr('x',function(d,i) {return xs(d.Activity);})
-            .attr('width',xs.bandwidth())
-            .attr('fill','#4E96A6')
-            .transition().duration(tt).delay(function(d,i) {return(i-1)*25 + tdel;})
-            .attr('y',function(d,i) {return ys(parseInt(d.KL));})
-            .attr('height',function(d,i) {return h - 2*margin - ys(parseInt(d.KL));})
-            .attr('fill',function(d,i) {return cs(parseInt(d.KL));})
-
-        dots[slideIndex-1].className += " active";
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
     }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    console.log(slides[slideIndex-1])
+    console.log(slideIndex);
+    
+    dots[slideIndex-1].className += " active";
 }
