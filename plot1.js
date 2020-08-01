@@ -47,6 +47,7 @@ async function dvsyr() {
 
     svg.append('g')
     .attr('transform','translate('+margin+','+margin+')')
+    .attr('id','firstPlot')
     .selectAll('rect')
     .data(data)
     .enter()
@@ -83,7 +84,8 @@ async function dvsyr() {
         // Give these new data to update rects
         // svg.selectAll('rect').remove()
 
-        svg.selectAll('rect')
+        svg.select('#firstPlot')
+        .selectAll('rect')
         .data(data)
         .transition().duration(tt).delay(function(d,i) {return(i-1)*25 + tdel;})
         .attr('y',function(d,i) {return ys(parseInt(d[selectedGroup]));})
@@ -390,7 +392,7 @@ async function decadeplots() {
         .attr('transform','translate('+margin+','+margin+')')
         .attr('id','ant')
         .attr("x", xs.bandwidth()*10)             
-        .attr("y", ys(100))
+        .attr("y", ys(110))
         .attr("text-anchor", "end")  
         .style('font','15px sans-serif')
         .data(data)
