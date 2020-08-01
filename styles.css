@@ -164,7 +164,6 @@ body, html {
 /* Slideshow container */
 .slideshow-container {
     position: relative;
-    margin: auto;
     height: 65%;
 }
 
