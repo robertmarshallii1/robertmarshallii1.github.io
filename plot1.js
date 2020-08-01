@@ -1,6 +1,6 @@
 async function init() {
     await dvsyr();
-    await decadeplots();
+    await decadeplots(0);
     var slideIndex = 1;
     showSlides(slideIndex);
 }
