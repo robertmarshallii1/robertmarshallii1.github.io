@@ -270,16 +270,16 @@ async function dvsyr() {
 }
 
 async function decadeplots() {
-    // const d50 = await d3.csv('avyAct50s.csv');
-    // const d60 = await d3.csv('avyAct60s.csv');
-    // const d70 = await d3.csv('avyAct70s.csv');
-    // const d80 = await d3.csv('avyAct80s.csv');
-    // const d90 = await d3.csv('avyAct90s.csv');
-    // const d00 = await d3.csv('avyAct00s.csv');
-    // const d10 = await d3.csv('avyAct10s.csv');
+    const d50 = await d3.csv('avyAct50s.csv');
+    const d60 = await d3.csv('avyAct60s.csv');
+    const d70 = await d3.csv('avyAct70s.csv');
+    const d80 = await d3.csv('avyAct80s.csv');
+    const d90 = await d3.csv('avyAct90s.csv');
+    const d00 = await d3.csv('avyAct00s.csv');
+    const d10 = await d3.csv('avyAct10s.csv');
 
-    // data = d50;
-    // data = data.slice(0,10);
+    data = d50;
+    data = data.slice(0,10);
 
     // var w = window.screen.width*0.8;
     // var h = window.screen.height*0.5; 
