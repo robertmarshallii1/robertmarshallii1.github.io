@@ -443,7 +443,7 @@ async function showSlides(n) {
     console.log('Slide index: ' + slideIndex-1);
     
     // Transition
-    var brs = 'bars' + (slideIndex-1);
+    var brs = 'bars' + slideIndex;
     console.log(brs);
     const d50 = await d3.csv('avyAct50s.csv');
     const d60 = await d3.csv('avyAct60s.csv');
