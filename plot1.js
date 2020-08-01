@@ -439,11 +439,12 @@ async function showSlides(n) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
     slides[slideIndex-1].style.display = "block";
-    console.log(test)
-    console.log(slideIndex)
+    console.log('test');
+    console.log(slideIndex);
     
     // Transition
     var brs = 'bars' + (slideIndex-1);
+    console.log(brs);
     const d50 = await d3.csv('avyAct50s.csv');
     const d60 = await d3.csv('avyAct60s.csv');
     const d70 = await d3.csv('avyAct70s.csv');
