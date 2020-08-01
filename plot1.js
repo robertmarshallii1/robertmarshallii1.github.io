@@ -16,9 +16,6 @@ async function dvsyr() {
     var ydomain = [0,36]
     var yrange = [h-2*margin,0];
     var ticks = ddomain;
-    if (ddomain.length > 25) {
-        ticks = multiplesOf(ddomain,5)
-    }
     var ys = d3.scaleLinear().domain(ydomain).range(yrange);
     var cs = d3.scaleLinear().domain([0,36]).range(['#4E96A6','#D99E32']);
     var clrs = {'Continental': '#D99E32', 'Maritime': '#4E96A6', 'Northeast': '#C2C5C8'};
