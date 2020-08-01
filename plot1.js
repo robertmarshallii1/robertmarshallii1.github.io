@@ -439,6 +439,8 @@ async function showSlides(n) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
     slides[slideIndex-1].style.display = "block";
+    console.log(slides.length)
+    console.log('IDX ' + slideIndex-1)
     
     // Transition
     var brs = 'bars' + (slideIndex-1);
