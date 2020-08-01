@@ -271,7 +271,7 @@ async function dvsyr() {
             .duration(tt + 1250)
 }
 
-async function decadeplots() {
+async function decadeplots(i) {
     const d50 = await d3.csv('avyAct50s.csv');
     const d60 = await d3.csv('avyAct60s.csv');
     const d70 = await d3.csv('avyAct70s.csv');
@@ -295,8 +295,7 @@ async function decadeplots() {
     var tt = 1500;
 
     // Loop through decades
-    var i;
-    for (i=0; i < dfs.length; i++) {
+    if (1==1) {
 
         var data = dfs[i];
         data = data.slice(0,10);
@@ -311,8 +310,8 @@ async function decadeplots() {
             .domain(data.map(function(d) {return d.Activity;}))
             .range(xrange)
 
-        var bid = 'decbars' + i;
-        var chid = 'dechart' + i;
+        var bid = 'decbars' + (i+1);
+        var chid = 'dechart' + (i+1);
         svg2.append('g')
         .attr('id',chid)
         .attr('transform','translate('+margin+','+margin+')')
@@ -441,6 +440,9 @@ function showSlides(n) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
     slides[slideIndex-1].style.display = "block";
+    if (slides.length > 0) {
+        decadeplots(slideIndex-1)
+    }
     
     dots[slideIndex-1].className += " active";
 }
