@@ -157,7 +157,7 @@ body, html {
 }
 
 .mySlides {display: none}
-.mySlides svg {vertical-align: middle;}
+.mySlides svg {vertical-align: middle; max-height: 65%;}
 
 * {box-sizing:border-box}
 
