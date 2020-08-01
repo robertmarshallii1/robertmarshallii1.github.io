@@ -238,6 +238,7 @@ async function dvsyr() {
         .attr("y", 0.5*margin)
         .attr("text-anchor", "middle")  
         .style('font','20px "Lato", sans-serif')
+        .style('letter-spacing','5px')
         .text("Avalanche Deaths vs Year");
 
     // Annotation
