@@ -93,15 +93,15 @@ async function dvsyr() {
 
         var tip = d3.tip()
         .attr('class', 'd3-tip')
-        .attr('id','ttp')
+        .attr('id','ttp1')
         .offset([-10, 0])
         .html(function(d) { 
             s = '<strong>Year: </strong>' + d.YYYY + '</br><strong>Deaths: </strong>' + d[selectedGroup] + '</br>'
             return s;})
 
-        d3.select('#ttb')
+        d3.select('#ttb1')
         .call(tip)
-        .selectAll('#ttips').data(data)
+        .selectAll('#ttips1').data(data)
         .attr('y',function(d,i) {return ys(parseInt(d[selectedGroup])+1);})
         .attr('height',function(d,i) {return h-2*margin-ys(parseInt(d[selectedGroup])+1);})
         .attr('x',function(d,i) {return xs(parseInt(d.YYYY));})
@@ -110,7 +110,7 @@ async function dvsyr() {
         .on('mouseout', tip.hide)
 
         // Update annotation
-        d3.select('#ant')
+        d3.select('#ant1')
         .data(data)
         .transition()
             .tween("text", function() {
@@ -137,7 +137,7 @@ async function dvsyr() {
     // tooltips
     var tip = d3.tip()
         .attr('class', 'd3-tip')
-        .attr('id','ttp')
+        .attr('id','ttp1')
         .offset([-10, 0])
         .html(function(d) {
             s = '<strong>Year: </strong>' + d.YYYY + '</br><strong>Deaths: </strong>' + d.ALL + '</br>'
@@ -191,13 +191,13 @@ async function dvsyr() {
     //     .attr('fill',clrs['Northeast'])
     svg.append('g')
         .attr('transform','translate('+margin+','+margin+')')
-        .attr('id','ttb')
+        .attr('id','ttb1')
     .call(tip)
     .selectAll('rect')
     .data(data)
     .enter()
     .append('rect')
-        .attr('id','ttips')
+        .attr('id','ttips1')
         .attr('y',function(d,i) {return ys(parseInt(d.ALL)+1);})
         .attr('height',function(d,i) {return h-2*margin-ys(parseInt(d.ALL)+1);})
         .attr('x',function(d,i) {return xs(parseInt(d.YYYY));})
@@ -247,7 +247,7 @@ async function dvsyr() {
     // Annotation
     svg.append("text")
         .attr('transform','translate('+margin+','+margin+')')
-        .attr('id','ant')
+        .attr('id','ant1')
         .attr("x", xs(1953))             
         .attr("y", ys(33))
         .attr("text-anchor", "start")  
