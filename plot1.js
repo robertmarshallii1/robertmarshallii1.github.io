@@ -280,8 +280,8 @@ async function decadeplots() {
     const d00 = await d3.csv('avyAct00s.csv');
     const d10 = await d3.csv('avyAct10s.csv');
 
-    data = d50;
-    data = data.slice(0,10);
+    var dfs = [d50,d60,d70,d80,d90,d00,d10];
+    var yr = ['1951-1959','1960-1969','1970-1979','1980-1989','1990-1999','2000-2009','2010-2019'];
 
     var w = window.screen.width*0.8;
     var h = window.screen.height*0.5; 
@@ -298,6 +298,9 @@ async function decadeplots() {
     svg2 = d3.select('#plot2');
     svg2.attr('height', h + 2*margin)
     .attr('width', w + 2 * margin)
+
+    data = dfs[0];
+    data = data.slice(0,10);
 
     // Initialize plot with 50s 
 
