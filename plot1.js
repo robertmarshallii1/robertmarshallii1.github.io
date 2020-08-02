@@ -444,7 +444,7 @@ async function decadeplots() {
             svg2.append("text")
                 .attr('transform','translate('+margin+','+margin+')')
                 .attr('id',antnt)
-                .attr("x", xs.bandwidth()*6)
+                .attr("x", xs.bandwidth()*2.5)
                 .attr("y", ys(100) + 12*j)
                 .attr("text-anchor", "start")  
                 .style('font','11px "Lato", sans-serif')
