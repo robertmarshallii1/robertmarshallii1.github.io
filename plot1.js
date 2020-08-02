@@ -314,7 +314,7 @@ async function decadeplots() {
 
         svg2 = d3.select(sname);
         svg2.attr('height', h*0.6 + 2*margin)
-        .attr('width', w*0.9 + 2 * margin)
+        .attr('width', w*0.7 + 2 * margin)
 
         var xs = d3.scaleBand()
             .domain(data.map(function(d) {return d.Activity;}))
