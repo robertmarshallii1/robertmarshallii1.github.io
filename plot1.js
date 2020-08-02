@@ -337,7 +337,8 @@ async function decadeplots() {
             .attr('id','ttp2')
             .offset([-10, 0])
             .html(function(d) {
-                s = '<strong>Activity: </strong>' + d.Activity + '</br><strong>Deaths: </strong>' + d.KL + '</br>'
+                s = '<strong>Activity: </strong>' + d.Activity + '</br><strong>Deaths: </strong>' + d.KL + '</br>' +
+                    'Percent Decade Total: ' + d['Pct'].toFixed(2) + '%';
                 return s;})
 
         svg2.append('g')
