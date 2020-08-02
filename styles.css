@@ -14,10 +14,12 @@ rect {
 }
 
 .left {
-    width: 75%;
+    float: left;
+    width: 80%;
 }
 
 .right {
+    float: right;
     width: 20%;
     margin-top: 5%;
     font: 13px "Lato", sans-serif;
