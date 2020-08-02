@@ -437,17 +437,20 @@ async function decadeplots() {
             .text('Total deaths: ' + d3.sum(data, function(d) {return d.KL;}))
 
         // Annotation notes
-            var antnt = "ant" + i
-            data = dfs[i];
+        var lns = caption[i].replace(/(?![^\n]{32}$)([^\n]{32})\s/g, '$1\n').split('\n')
+        var antnt = "ant" + i
+        var j;
+        for (j=0; j<lns.length; j++) {
             svg2.append("text")
                 .attr('transform','translate('+margin+','+margin+')')
                 .attr('id',antnt)
                 .attr("x", xs.bandwidth()*10)
-                .attr("y", ys(50))
+                .attr("y", ys(80) + 12*j)
                 .attr("text-anchor", "end")  
                 .style('font','11px "Lato", sans-serif')
                 .style('letter-spacing','2px')
-                .text(caption[i].replace(/(?![^\n]{32}$)([^\n]{32})\s/g, '$1\n'));
+                .text(lns[j]);
+        }
     }
 }
 
