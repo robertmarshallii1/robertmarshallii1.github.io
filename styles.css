@@ -29,11 +29,6 @@ rect {
     text-align: center;
 }
 
-.splot {
-    display: block;
-    margin: 0;
-  }
-
 .parallax {
     background-attachment: fixed;
     background-position: center;
@@ -175,6 +170,7 @@ body, html {
 .mySlides {
     display: none;
     width: 80%;
+    max-height: 50%;
 }
 
 /* Next & previous buttons */
