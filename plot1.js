@@ -314,7 +314,7 @@ async function decadeplots() {
 
         svg2 = d3.select(sname);
         svg2.attr('height', h*0.6 + 2*margin)
-        .attr('width', w + 2 * margin)
+        .attr('width', w*0.9 + 2 * margin)
 
         var xs = d3.scaleBand()
             .domain(data.map(function(d) {return d.Activity;}))
@@ -418,7 +418,7 @@ async function decadeplots() {
         svg2.append("text")
             .attr('transform','translate('+margin+','+margin+')')
             .attr('id',ant)
-            .attr("x", xs.bandwidth()*10)             
+            .attr("x", xs.bandwidth()*10)
             .attr("y", ys(110))
             .attr("text-anchor", "end")  
             .style('font','11px "Lato", sans-serif')
