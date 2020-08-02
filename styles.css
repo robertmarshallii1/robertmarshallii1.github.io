@@ -20,8 +20,9 @@ rect {
 .right {
     width: 20%;
     margin-top: 5%;
-    font-size: 15px;
-    font-family: sans-serif;
+    font: 11px "Lato", sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .plot {

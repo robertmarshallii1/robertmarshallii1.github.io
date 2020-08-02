@@ -142,6 +142,9 @@ async function dvsyr() {
     var tip = d3.tip()
         .attr('class', 'd3-tip')
         .attr('id','ttp')
+        .style('font','11px "Lato", sans-serif')
+        .style('letter-spacing','2px')
+        .style('text-transform','uppercase')
         .offset([-10, 0])
         .html(function(d) {
             s = '<strong>Year: </strong>' + d.YYYY + '</br><strong>Deaths: </strong>' + d.ALL + '</br>'
@@ -341,6 +344,9 @@ async function decadeplots() {
         var tip = d3.tip()
             .attr('class', 'd3-tip')
             .attr('id','ttp2')
+            .style('font','11px "Lato", sans-serif')
+            .style('letter-spacing','2px')
+            .style('text-transform','uppercase')
             .offset([-10, 0])
             .html(function(d) {
                 s = '<strong>Activity: </strong>' + d.Activity + '</br><strong>Deaths: </strong>' + d.KL + '</br>' +
@@ -382,13 +388,17 @@ async function decadeplots() {
         .attr("x",0 - (h/2))
         .attr("dy", "1em")
         .style('text-anchor', 'middle')
-        .style('font','15px sans-serif')
+        .style('font','11px "Lato", sans-serif')
+        .style('letter-spacing','2px')
+        .style('text-transform','uppercase')
         .text('Deaths');
 
         svg2.append("text")             
         .attr("transform","translate("+(w/2)+" ,"+(h - 0.5*margin)+")")
         .style("text-anchor", "middle")
-        .style('font','15px sans-serif')
+        .style('font','11px "Lato", sans-serif')
+        .style('letter-spacing','2px')
+        .style('text-transform','uppercase')
         .text('Activity');
 
         // Title
@@ -411,7 +421,9 @@ async function decadeplots() {
             .attr("x", xs.bandwidth()*10)             
             .attr("y", ys(110))
             .attr("text-anchor", "end")  
-            .style('font','15px sans-serif')
+            .style('font','11px "Lato", sans-serif')
+            .style('letter-spacing','2px')
+            .style('text-transform','uppercase')
             .data(data)
             .text('Total deaths: ' + d3.sum(data, function(d) {return d.KL;}))
     }
