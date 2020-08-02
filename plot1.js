@@ -447,7 +447,7 @@ async function decadeplots() {
                 .attr("text-anchor", "end")  
                 .style('font','11px "Lato", sans-serif')
                 .style('letter-spacing','2px')
-                .text(wrap(caption[i]));
+                .text(wrap(caption[i],32));
     }
 }
 
