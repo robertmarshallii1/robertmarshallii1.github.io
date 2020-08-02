@@ -291,7 +291,16 @@ async function decadeplots() {
 
     var dfs = [d50,d60,d70,d80,d90,d00,d10];
     var yr = ['1951-1959','1960-1969','1970-1979','1980-1989','1990-1999','2000-2009','2010-2019'];
-
+    var caption = ['Relatively few deaths during winter sports and recreation in the 50s and 60s',
+                   'Relatively few deaths during winter sports and recreation in the 50s and 60s',
+                   'Sport and recreational activities begin to represent a greater proportion of fatalities',
+                   'Between backcountry, sidecountry, and ski patrol, skiers represent a majority of deaths',
+                   'Snowmobilers leap to the top of the chart as newer technology allows snowmobilers to access steeper, more avalanche-prone terrain',
+                   'Sport and recreation now represet over 95% of avalanche fatalities in the 2000s',
+                   'Backcountry skiing continues to grow in popularity (and unfortunately avalanche deaths), while snowmobilers take a welcome step lower'];
+    const wrap = (s, w) => s.replace(
+        /(?![^\n]{1,32}$)([^\n]{1,32})\s/g, '$1\n'
+    );
     var w = window.screen.width*0.8;
     var h = window.screen.height*0.5; 
     var margin = window.screen.height*0.1;
@@ -426,6 +435,19 @@ async function decadeplots() {
             .style('text-transform','uppercase')
             .data(data)
             .text('Total deaths: ' + d3.sum(data, function(d) {return d.KL;}))
+
+        // Annotation notes
+            var antnt = "ant" + i
+            data = dfs[i];
+            svg2.append("text")
+                .attr('transform','translate('+margin+','+margin+')')
+                .attr('id',antnt)
+                .attr("x", xs.bandwidth()*10)
+                .attr("y", ys(50))
+                .attr("text-anchor", "end")  
+                .style('font','11px "Lato", sans-serif')
+                .style('letter-spacing','2px')
+                .text(wrap(caption(i)));
     }
 }
 
