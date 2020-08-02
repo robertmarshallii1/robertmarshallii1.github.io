@@ -447,7 +447,7 @@ async function decadeplots() {
                 .attr("text-anchor", "end")  
                 .style('font','11px "Lato", sans-serif')
                 .style('letter-spacing','2px')
-                .text(caption[i].replace(/(?![^\n]{1,32}$)([^\n]{1,32})\s/g, '$1\n'));
+                .text(caption[i].replace(/(?![^\n]{32}$)([^\n]{32})\s/g, '$1\n'));
     }
 }
 
