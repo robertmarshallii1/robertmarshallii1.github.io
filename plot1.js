@@ -437,7 +437,7 @@ async function decadeplots() {
             .text('Total deaths: ' + d3.sum(data, function(d) {return d.KL;}))
 
         // Annotation notes
-        var lns = caption[i].replace(/(?![^\n]{24}$)([^\n]{24})\s/g, '$1\n').split('\n')
+        var lns = caption[i].replace(/(?![^\n]{23}$)([^\n]{23})\s/g, '$1\n').split('\n')
         var antnt = "ant" + i
         var j;
         for (j=0; j<lns.length; j++) {
