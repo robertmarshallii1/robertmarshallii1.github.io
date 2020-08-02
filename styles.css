@@ -174,8 +174,6 @@ body, html {
 .mySlides {
     display: none;
     width: 80%;
-    max-height: 50%;
-    margin: auto;
 }
 
 /* Next & previous buttons */
