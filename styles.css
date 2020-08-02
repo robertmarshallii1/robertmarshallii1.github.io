@@ -7,6 +7,13 @@ rect {
     stroke: black;
 }
 
+p {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
 /* Create two unequal columns that floats next to each other */
 .column {
     float: left;
