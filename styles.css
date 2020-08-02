@@ -12,6 +12,7 @@ p {
     margin-left: auto;
     margin-right: auto;
     text-align: left;
+    font: 12px "Lato", sans-serif;
 }
 
 /* Create two unequal columns that floats next to each other */
