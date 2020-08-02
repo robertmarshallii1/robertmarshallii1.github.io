@@ -20,8 +20,9 @@ rect {
 .right {
     width: 20%;
     margin-top: 5%;
-    font: 11px "Lato", sans-serif;
-    letter-spacing: 2px;
+    font: 13px "Lato", sans-serif;
+    letter-spacing: 3px;
+    font-weight: bold;
     text-transform: uppercase;
 }
 
@@ -48,7 +49,9 @@ rect {
     background: rgba(13, 13, 13, 0.6);
     color: #fff;
     border-radius: 8px;
-    font: 15px Arial, sans-serif;
+    font: 12px "Lato", sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     opacity: 0.8;
   }
 
