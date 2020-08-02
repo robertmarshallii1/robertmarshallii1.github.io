@@ -228,13 +228,17 @@ async function dvsyr() {
     .attr("x",0 - (h/2))
     .attr("dy", "1em")
     .style('text-anchor', 'middle')
-    .style('font','15px sans-serif')
+    .style('font','11px "Lato", sans-serif')
+    .style('letter-spacing','2px')
+    .style('text-transform','uppercase')
     .text('Deaths');
 
     svg.append("text")             
     .attr("transform","translate("+(w/2)+" ,"+(h - 0.5*margin)+")")
     .style("text-anchor", "middle")
-    .style('font','15px sans-serif')
+    .style('font','11px "Lato", sans-serif')
+    .style('letter-spacing','2px')
+    .style('text-transform','uppercase')
     .text('Year');
 
     // Title
@@ -255,7 +259,9 @@ async function dvsyr() {
         .attr("x", xs(1953))             
         .attr("y", ys(33))
         .attr("text-anchor", "start")  
-        .style('font','15px sans-serif')
+        .style('font','11px "Lato", sans-serif')
+        .style('letter-spacing','2px')
+        .style('text-transform','uppercase')
         .data(data)
         .text('Total deaths: 0')
         .transition()
@@ -338,7 +344,7 @@ async function decadeplots() {
             .offset([-10, 0])
             .html(function(d) {
                 s = '<strong>Activity: </strong>' + d.Activity + '</br><strong>Deaths: </strong>' + d.KL + '</br>' +
-                    'Percent Decade Total: ' + parseFloat(d.Pct).toFixed(2) + '%';
+                    '<strong>Percent Decade Total: </strong>' + parseFloat(d.Pct).toFixed(2) + '%';
                 return s;})
 
         svg2.append('g')
