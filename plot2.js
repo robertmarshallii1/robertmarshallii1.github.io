@@ -11,7 +11,7 @@ async function decadeplots() {
     data = data.slice(0,10);
 
     var w = window.screen.width*0.8;
-    var h = window.screen.height*0.5; 
+    var h = window.screen.height*0.25; 
     var margin = window.screen.height*0.1;
     var xrange = [0,w-2*margin];
     var ydomain = [0,120]

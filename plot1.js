@@ -284,7 +284,7 @@ async function decadeplots() {
     var yr = ['1951-1959','1960-1969','1970-1979','1980-1989','1990-1999','2000-2009','2010-2019'];
 
     var w = window.screen.width*0.8;
-    var h = window.screen.height*0.5; 
+    var h = window.screen.height*0.3; 
     var margin = window.screen.height*0.1;
     var xrange = [0,w-2*margin];
     var ydomain = [0,120]
