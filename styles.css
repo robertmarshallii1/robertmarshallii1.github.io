@@ -170,13 +170,11 @@ body, html {
 .slideshow-container {
     position: relative;
     margin: auto;
-    max-height: 60%;
 }
 
 .mySlides {
     display: none;
     width: 80%;
-    max-height: 50%;
 }
 
 /* Next & previous buttons */
