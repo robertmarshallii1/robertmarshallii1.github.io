@@ -29,6 +29,11 @@ rect {
     text-align: center;
 }
 
+.splot {
+    display: block;
+    margin: 0 auto;
+  }
+
 .parallax {
     background-attachment: fixed;
     background-position: center;
