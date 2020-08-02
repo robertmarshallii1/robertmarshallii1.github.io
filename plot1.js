@@ -296,7 +296,7 @@ async function decadeplots() {
                    'Sport and recreational activities begin to represent a greater proportion of fatalities',
                    'Between backcountry, sidecountry, and ski patrol, skiers represent a majority of deaths',
                    'Snowmobilers leap to the top of the chart as newer technology allows snowmobilers to access steeper, more avalanche-prone terrain',
-                   'Sport and recreation now represet over 95% of avalanche fatalities in the 2000s',
+                   'Sport and recreation activities now represet over 95% of avalanche fatalities in the 2000s',
                    'Backcountry skiing continues to grow in popularity (and unfortunately avalanche deaths), while snowmobilers take a welcome step lower'];
     const wrap = (s, w) => s.replace(
         /(?![^\n]{1,32}$)([^\n]{1,32})\s/g, '$1\n'
