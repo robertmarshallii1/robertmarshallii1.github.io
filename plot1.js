@@ -284,7 +284,7 @@ async function decadeplots() {
     var yr = ['1951-1959','1960-1969','1970-1979','1980-1989','1990-1999','2000-2009','2010-2019'];
 
     var w = window.screen.width*0.8;
-    var h = window.screen.height*0.65; 
+    var h = window.screen.height*0.5; 
     var margin = window.screen.height*0.1;
     var xrange = [0,w-2*margin];
     var ydomain = [0,120]
@@ -304,7 +304,7 @@ async function decadeplots() {
         var sname = '#slide' + (i+1);
 
         svg2 = d3.select(sname);
-        svg2.attr('height', h + 2*margin)
+        svg2.attr('height', h*0.6 + 2*margin)
         .attr('width', w + 2 * margin)
 
         var xs = d3.scaleBand()
