@@ -291,8 +291,8 @@ async function decadeplots() {
 
     var dfs = [d50,d60,d70,d80,d90,d00,d10];
     var yr = ['1951-1959','1960-1969','1970-1979','1980-1989','1990-1999','2000-2009','2010-2019'];
-    var caption = ['Relatively few deaths during winter sports and recreation in the 50s and 60s',
-                   'Relatively few deaths during winter sports and recreation in the 50s and 60s',
+    var caption = ['Relatively few deaths during winter sports and recreation in the 1950s and 1960s',
+                   'Relatively few deaths during winter sports and recreation in the 1950s and 1960s',
                    'Sport and recreational activities begin to represent a greater proportion of fatalities',
                    'Between backcountry, sidecountry, and ski patrol, skiers represent a majority of deaths',
                    'Snowmobilers leap to the top of the chart as newer technology allows snowmobilers to access steeper, more avalanche-prone terrain',
