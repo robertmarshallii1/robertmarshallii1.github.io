@@ -42,7 +42,7 @@ async function dvsyr() {
 
     // Initialize svg element
     svg = d3.select('#plot1');
-    svg.attr('height', h + 2*margin)
+    svg.attr('height', h*0.6 + 2*margin)
     .attr('width', w + 2 * margin)
 
     // Initialize plot with ALL 
