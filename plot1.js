@@ -291,16 +291,13 @@ async function decadeplots() {
 
     var dfs = [d50,d60,d70,d80,d90,d00,d10];
     var yr = ['1951-1959','1960-1969','1970-1979','1980-1989','1990-1999','2000-2009','2010-2019'];
-    var caption = ['Relatively few deaths during winter sports and recreation in the 1950s and 1960s',
-                   'Relatively few deaths during winter sports and recreation in the 1950s and 1960s',
-                   'Sport and recreational activities begin to represent a greater proportion of fatalities',
-                   'Between backcountry, sidecountry, and ski patrol, skiers represent a majority of deaths',
-                   'Snowmobilers leap to the top of the chart as newer technology allows snowmobilers to access steeper, more avalanche-prone terrain',
-                   'Sport and recreation activities now represet over 95% of avalanche fatalities in the 2000s',
-                   'Backcountry skiing continues to grow in popularity (and unfortunately avalanche deaths), while snowmobilers take a welcome step lower'];
-    const wrap = (s, w) => s.replace(
-        /(?![^\n]{1,32}$)([^\n]{1,32})\s/g, '$1\n'
-    );
+    var caption = ['Relatively few deaths during winter sports and recreation in the 1950s and 1960s.',
+                   'Relatively few deaths during winter sports and recreation in the 1950s and 1960s.',
+                   'Sport and recreational activities begin to represent a greater proportion of fatalities, suggesting an increasing appetite for outdoor recreation such as climbing and backcountry skiing could explain the first jump in the 1970s.',
+                   'Between backcountry, sidecountry, and ski patrol, skiers represent a majority of deaths.',
+                   'Snowmobilers leap to the top of the chart as newer technology allows snowmobilers to access steeper, more avalanche-prone terrain. The boom of snowmobiling as a sport could explain our second jump in the 1990s.',
+                   'Sport and recreation activities now represet over 95% of avalanche fatalities in the 2000s.',
+                   'Backcountry skiing continues to grow in popularity (and unfortunately avalanche deaths), while snowmobilers take a welcome step lower. For the first time, total deaths fall relative to the previous decade. '];
     var w = window.screen.width*0.8;
     var h = window.screen.height*0.5; 
     var margin = window.screen.height*0.1;
@@ -437,7 +434,7 @@ async function decadeplots() {
             .text('Total deaths: ' + d3.sum(data, function(d) {return d.KL;}))
 
         // Annotation notes
-        var lns = caption[i].replace(/(?![^\n]{23}$)([^\n]{23})\s/g, '$1\n').split('\n')
+        var lns = caption[i].replace(/(?![^\n]{32}$)([^\n]{32})\s/g, '$1\n').split('\n')
         var antnt = "ant" + i
         var j;
         for (j=0; j<lns.length; j++) {
