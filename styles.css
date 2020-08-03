@@ -161,6 +161,15 @@ body, html {
     letter-spacing: 10px;
     opacity: 1.25;
   }
+
+  .caption span.border {
+    background-color: #D99E32;
+    color: #FFF;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+    opacity: 1.25;
+  }
   
   h3 {
     letter-spacing: 5px;
