@@ -98,6 +98,8 @@ async function dvsyr() {
         var tip = d3.tip()
         .attr('class', 'd3-tip')
         .attr('id','ttp')
+        .style('left',d3.event.pageX)
+        .style('top',d3.event.pageY)
         .offset([-10, 0])
         .html(function(d) { 
             s = '<strong>Year: </strong>' + d.YYYY + '</br><strong>Deaths: </strong>' + d[selectedGroup] + '</br>'
@@ -145,6 +147,8 @@ async function dvsyr() {
         .style('font','11px "Lato", sans-serif')
         .style('letter-spacing','2px')
         .style('text-transform','uppercase')
+        .style('left',d3.event.pageX)
+        .style('top',d3.event.pageY)
         .offset([-10, 0])
         .html(function(d) {
             s = '<strong>Year: </strong>' + d.YYYY + '</br><strong>Deaths: </strong>' + d.ALL + '</br>'
