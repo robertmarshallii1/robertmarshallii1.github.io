@@ -14,6 +14,10 @@ p {
     text-align: left;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Create two unequal columns that floats next to each other */
 .column {
     float: left;
