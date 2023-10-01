@@ -6,32 +6,13 @@
     <title>Art and Science of Kambo</title>
     <script src='https://d3js.org/d3.v5.min.js'></script>
     <script src="d3-tip.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="hamburger.js"></script>
     <link rel="stylesheet" type="text/css" href="kamboStyle.css">
 </head>
 
 <body onload='init()'>
 <script src='plot1.js'></script>
-<script>
-    $(document).ready(function() {
-    
-      function toggleSidebar() {
-        $(".button").toggleClass("active");
-        $("main").toggleClass("move-to-left");
-        $(".sidebar-item").toggleClass("active");
-      }
-    
-      $(".button").on("click tap", function() {
-        toggleSidebar();
-      });
-    
-      $(document).keyup(function(e) {
-        if (e.keyCode === 27) {
-          toggleSidebar();
-        }
-      });
-    
-    });
-</script>
 <div class="nav-right visible-xs">
   <div class="button" id="btn">
     <div class="bar top"></div>
