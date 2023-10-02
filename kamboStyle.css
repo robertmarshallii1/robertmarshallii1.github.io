@@ -382,5 +382,14 @@ body, html {
 }
 
 a {
-  font: 400 15px/1.8 "Lato", sans-serif;
+  font-family: "Lato", sans-serif;
+  font-size: 24px;
+  letter-spacing: 3px;
+  color: #450000;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+a:hover {
+  color: #806f6f;
 }
