@@ -281,8 +281,6 @@ body, html {
   bottom: 0%;
   position: fixed;
   margin: 50px auto;
-  margin-left: auto;
-  margin-right: auto;
   z-index: 1000;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
@@ -303,7 +301,9 @@ body, html {
   background: #d3531a;
   border-radius: 9px;
   opacity: 1;
-  left: 0;
+  /* left: 0; */
+  margin-left: auto;
+  margin-right: auto;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
