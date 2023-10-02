@@ -163,8 +163,8 @@ body, html {
   }
   
   .caption span.border {
-    background-color: #0D0D0D;
-    color: #FFF;
+    background-color: #524630;
+    color: #450000;
     padding: 18px;
     font-size: 25px;
     letter-spacing: 10px;
@@ -299,7 +299,7 @@ body, html {
   position: absolute;
   height: 9px;
   width: 60px;
-  background: #D4AF37;
+  background: #450000;
   border-radius: 9px;
   opacity: 1;
   /* left: 0; */
