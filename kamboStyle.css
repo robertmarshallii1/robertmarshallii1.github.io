@@ -276,11 +276,13 @@ body, html {
 #nav-icon3 {
   margin: 0;
   padding: 0; 
-  width: 60px;
+  width: 100%;
   height: 45px;
   bottom: 0%;
   position: fixed;
   margin: 50px auto;
+  margin-left: auto;
+  margin-right: auto;
   z-index: 1000;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
