@@ -391,7 +391,7 @@ a {
 }
 
 a:hover {
-  color: #806f6f;
+  opacity: 0.8;
 }
 
 ul {
