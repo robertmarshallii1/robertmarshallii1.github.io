@@ -299,7 +299,7 @@ body, html {
   display: block;
   position: absolute;
   height: 9px;
-  width: 100%;
+  width: 60px;
   background: #d3531a;
   border-radius: 9px;
   opacity: 1;
