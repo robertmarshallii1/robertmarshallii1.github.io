@@ -278,7 +278,7 @@ body, html {
   padding: 0; 
   width: 60px;
   height: 45px;
-  bottom: 0%
+  bottom: 0%;
   position: fixed;
   margin: 50px auto;
   -webkit-transform: rotate(0deg);
