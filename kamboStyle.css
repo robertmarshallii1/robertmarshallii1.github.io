@@ -359,5 +359,13 @@ body, html {
 }
 
 #menu-pop.open {
-  display: block;
+    display: block;
+    position: fixed;
+    bottom: 120px;
+    left: 5%;
+    height: 100%;
+    width: 90%;
+    z-index: 1;
+    background-color: black;
+    margin: 0 auto;
 }
