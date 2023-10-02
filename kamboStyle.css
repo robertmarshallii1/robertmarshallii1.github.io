@@ -356,12 +356,12 @@ body, html {
 
 #menu-pop {
   display: none;
-  align-items: center;
-  justify-content: center;
 }
 
 #menu-pop.open {
     display: flex;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     bottom: 120px;
     left: 5%;
