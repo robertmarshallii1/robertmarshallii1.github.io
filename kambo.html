@@ -18,10 +18,16 @@
   <span></span>
   <span></span>
 </div>
+<div id="menu-pop">
+  <div class="caption">
+    <span class="border">Hello, world!</span>
+  </div>
+</div>
 <script id="rendered-js">
 $(document).ready(function () {
   $('#nav-icon3').click(function () {
     $(this).toggleClass('open');
+    $('#menu-pop').toggleClass('open');
   });
 });
 </script>
