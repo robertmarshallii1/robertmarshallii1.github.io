@@ -283,7 +283,7 @@ body, html {
   margin: 50px auto;
   margin-left: auto;
   margin-right: auto;
-  z-index: -1;
+  z-index: 1000;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
