@@ -367,6 +367,7 @@ body, html {
     left: 5%;
     top: 5%;
     width: 90%;
+    height: 90%;
     z-index: 1;
     background-color: #524630;
     opacity: 0.95
