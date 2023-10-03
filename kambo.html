@@ -21,11 +21,11 @@
 <div id="menu-pop">
   <div id="linklist">
     <ul>
-        <li><a href="#" id="menulink">Science of Kambo</a></li>
-        <li><a href="#" id="menulink">Tradition</a></li>
-        <li><a href="#" id="menulink">Services</a></li>
-        <li><a href="#" id="menulink">Practitioner</a></li>
-        <li><a href="#" id="menulink">Contact</a></li>
+        <li><a href="#" class="menulink">Science of Kambo</a></li>
+        <li><a href="#" class="menulink">Tradition</a></li>
+        <li><a href="#" class="menulink">Services</a></li>
+        <li><a href="#" class="menulink">Practitioner</a></li>
+        <li><a href="#" class="menulink">Contact</a></li>
     </ul>
   </div>
 </div>
@@ -35,7 +35,7 @@ $(document).ready(function () {
     $(this).toggleClass('open');
     $('#menu-pop').toggleClass('open');
   });
-  $('#menulink').click(function () {
+  $('a.menulink').click(function () {
     $('#nav-icon3').toggleClass('open');
     $('#menu-pop').toggleClass('open');
   });
