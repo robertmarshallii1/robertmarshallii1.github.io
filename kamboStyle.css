@@ -164,10 +164,11 @@ body, html {
   .caption span.border {
     background-color: #524630;
     color: #450000;
-    padding: 18px;
+    padding: 20px;
     font-size: 25px;
     letter-spacing: 10px;
     opacity: 0.95;
+    text-transform: uppercase;
   }
 
   .caption span.border2 {
@@ -374,7 +375,7 @@ body, html {
     height: 90%;
     z-index: 1;
     background-color: #524630;
-    opacity: 0.95
+    opacity: 0.95;
     -webkit-transition: .5s ease-in-out;
     -moz-transition: .5s ease-in-out;
     -o-transition: .5s ease-in-out;
