@@ -315,6 +315,10 @@ body, html {
   transition: .25s ease-in-out;
 }
 
+#nav-icon3:hover > span {
+  background: #715d5d
+}
+
 #nav-icon3 span:nth-child(1) {
   top: 0px;
 }
