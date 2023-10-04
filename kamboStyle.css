@@ -404,3 +404,11 @@ ul {
   padding: 0; /* Remove padding */
   margin: 0; /* Remove margins */
 }
+
+.info {
+  background-color:#392c00;
+  text-align:center;
+  padding:50px 80px;
+  text-align: justify;
+  min-height: 75%;
+}
