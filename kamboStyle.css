@@ -148,7 +148,7 @@ body, html {
   .caption {
     position: absolute;
     left: 0;
-    top: 50%;
+    top: 45%;
     width: 100%;
     text-align: center;
     color: #000;
@@ -408,7 +408,7 @@ ul {
 .info {
   background-color:#392c00;
   text-align:center;
-  padding:50px 80px;
+  padding:5% 5%;
   text-align: justify;
   min-height: 75%;
 }
