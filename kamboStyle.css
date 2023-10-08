@@ -559,10 +559,9 @@ textarea:hover {
   
   outline:none;
   cursor: pointer;
-  
-  border: solid 1px #b3aca7;
 }
 
 #submit:hover {
   color: #e2dedb;
+  background-color: #121e1a;
 }
