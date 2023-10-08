@@ -491,16 +491,17 @@ input:hover:focus::-ms-placeholder, textarea:hover::focus:-ms-placeholder {
 
 #form {
   position: relative;
-  width: 500px;
-  margin: 50px auto 100px auto;
+  width: 100%;
+  margin: 5% auto 5% auto;
 }
 
 input {
   font-family: 'Lato', sans-serif;
   font-size: 15px;
-  width: 470px;
+  letter-spacing: 2px;
+  width: 100%;
   height: 50px;
-  padding: 0px 15px 0px 15px;
+  padding: 0 2% 0 2%;
   
   background: transparent;
   outline: none;
@@ -521,11 +522,9 @@ input:hover {
 }
 
 textarea {
-  width: 470px;
-  max-width: 470px;
-  height: 110px;
-  max-height: 110px;
-  padding: 15px;
+  width: 100%;
+  height: 30%;
+  padding: 2%;
   
   background: transparent;
   outline: none;
@@ -533,6 +532,7 @@ textarea {
   color: #726659;
   font-family: 'Lato', sans-serif;
   font-size: 15px;
+  letter-spacing: 2px;
   
   border: solid 1px #b3aca7;
   
@@ -548,13 +548,16 @@ textarea:hover {
 }
 
 #submit {
-  width: 502px;
+  width: 100%;
   
   padding: 0;
   margin: -5px 0px 0px 0px;
   
   font-family: 'Lato', sans-serif;
   font-size: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 5px;
   color: #b3aca7;
   
   outline:none;
