@@ -567,3 +567,10 @@ textarea:hover {
   color: #e2dedb;
   background-color: #121e1a;
 }
+
+textarea:focus {
+	background-color: #524630;
+}
+input:focus {
+	background-color: #524630;
+}
