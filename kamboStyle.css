@@ -513,7 +513,7 @@ input {
 }
 
 input:hover {
-  background: #b3aca7;
+  background: #564b35;
   color: #e2dedb;
 }
 
@@ -540,7 +540,7 @@ textarea {
 }
 
 textarea:hover {
-  background: #b3aca7;
+  background: #564b35;
   color: #e2dedb;
 }
 
@@ -557,6 +557,7 @@ textarea:hover {
   /* color: #b3aca7; */
   border: solid 1px #200000;
   background-color: #0e1814;
+  border-radius: 4px;
   
   outline:none;
   cursor: pointer;
