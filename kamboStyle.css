@@ -554,6 +554,8 @@ textarea:hover {
   text-transform: uppercase;
   letter-spacing: 5px;
   /* color: #b3aca7; */
+  border: solid 1px #020806;
+  background-color: #0e1814;
   
   outline:none;
   cursor: pointer;
